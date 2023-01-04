@@ -1,0 +1,76 @@
+body {
+  background-color: #000;
+  overflow: hidden;
+}
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+.main-container {
+  display: flex;
+  width: 70%;
+  margin-top: 7rem;
+}
+.container {
+  position: absolute;
+  width: 30%;
+  height: 70%;
+}
+.outer {
+  animation: rotate-right 100s linear infinite;
+}
+.inner {
+  position: absolute;
+  top: 28%;
+  left: 28%;
+  animation: rotate-right 25s linear infinite;
+}
+.middle {
+  position: absolute;
+  top: 16%;
+  left: 16%;
+  animation: rotate-left 50s linear infinite;
+}
+@keyframes rotate-right {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate-left {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0);
+  }
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-top: 15%;
+  width: 70%;
+}
+.top h1 {
+  text-align: center;
+  margin-left: -5rem;
+}
+.top ul {
+  display: flex;
+  padding: 0;
+}
+.top ul li {
+  margin: 5px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  .main-container {
+    width: 60%;
+  }
+}
