@@ -26,8 +26,8 @@ router.get("/me", auth, async (req, res) => {
 });
 
 const validations_profile = [
+  check("skills", "Skills are required").notEmpty(),
   check("status", "Status is required").notEmpty(),
-  check("skills", "Skills is required").notEmpty(),
 ];
 
 router.post("/", auth, validations_profile, async (req, res) => {
@@ -64,7 +64,9 @@ router.post("/", auth, validations_profile, async (req, res) => {
   if (status) profileFields.status = status;
   if (githubusername) profileFields.githubusername = githubusername;
   if (skills) {
-    profileFields.skills = skills.split(",").map((skill) => skill.trim());
+    profileFields.skills = String(skills)
+      .split(",")
+      .map((skill) => skill.trim());
   }
 
   /*******************************

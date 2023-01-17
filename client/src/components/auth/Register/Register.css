@@ -1,0 +1,10 @@
+.auth-container {
+  color: #fff;
+  width: 30%;
+  min-width: 300px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}

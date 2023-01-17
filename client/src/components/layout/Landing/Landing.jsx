@@ -1,12 +1,15 @@
 import React from "react";
 import "./Landing.css";
-const Landing = () => {
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+const Landing = ({ auth: { isAuthenticated, loading } }) => {
   return (
     <div className="wrapper">
-      <div class="main-container">
-        <div class="container">
+      <div className="main-container">
+        <div className="container">
           <svg
-            class="outer"
+            className="outer"
             width="100%"
             height="100%"
             viewBox="0 0 262 262"
@@ -243,9 +246,9 @@ const Landing = () => {
                 width="260.629"
                 height="260.762"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -274,11 +277,11 @@ const Landing = () => {
             </defs>
           </svg>
         </div>
-        <div class="container">
+        <div className="container">
           <svg
-            class="middle"
-            width="68%"
-            height="68%"
+            className="middle"
+            width="70%"
+            height="70%"
             viewBox="0 0 255 255"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -453,9 +456,9 @@ const Landing = () => {
                 width="254.641"
                 height="254.437"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -484,11 +487,11 @@ const Landing = () => {
             </defs>
           </svg>
         </div>
-        <div class="container">
+        <div className="container">
           <svg
-            class="inner"
-            width="45%"
-            height="45%"
+            className="inner"
+            width="40%"
+            height="40%"
             viewBox="0 0 147 147"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -663,9 +666,9 @@ const Landing = () => {
                 width="145.51"
                 height="145.412"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -697,7 +700,7 @@ const Landing = () => {
       </div>
       <div className="content">
         <div className="top">
-          <h1>BlogOn</h1>
+          <h1>DevCon</h1>
           <ul>
             <li>Write Blogs, Make Posts</li>
             <li>|</li>
@@ -706,9 +709,27 @@ const Landing = () => {
             <li>Make a developer Profile/Portfolio</li>
           </ul>
         </div>
+        <div className="bottom">
+          {!isAuthenticated ? (
+            <Link to="/register">
+              <button className="glow-btn">Get Started</button>
+            </Link>
+          ) : (
+            ""
+          )}
+          <Link to="/">
+            <button className="btn2 glow-btn">View Developers</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
 
-export default Landing;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps)(Landing);

@@ -29,7 +29,7 @@ router.post("/", validations, async (req, res) => {
     let user = await User.findOne({ email });
 
     if (user) {
-      return res.status(400).json({ errors: [{ msg: "user already exists" }] });
+      return res.status(400).json({ errors: [{ msg: "User already exists" }] });
     }
 
     const avatar = gravatar.url(email, {
@@ -67,7 +67,7 @@ router.post("/", validations, async (req, res) => {
       }
     );
   } catch (e) {
-    console.log(e.message);
+    console.log(e);
     res.status(500).send("Server Error");
   }
 });

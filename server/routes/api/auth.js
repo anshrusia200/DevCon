@@ -10,9 +10,9 @@ router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password"); // -password will not return password
 
-    res.json(user);
+    return res.json(user);
   } catch (e) {
-    res.status(500).send("Server Error");
+    return res.status(500).send("Server Error");
   }
 });
 

@@ -12,14 +12,14 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  /* position: fixed; */
+  margin: 0;
   padding: 0 2rem;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   top: 0;
   left: 0;
-  opacity: 0.9;
-  background-color: rgb(0, 0, 0);
+  background-color: #0e0e0e;
 }
 
 .navbar ul {
@@ -30,6 +30,7 @@ a {
   color: #fff;
   padding: 0.45rem;
   margin: 0 0.25rem;
+  text-align: center;
 }
 .navbar li {
   color: #fff;
@@ -41,4 +42,21 @@ a {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+@media only screen and (max-width: 430px) {
+  .navbar {
+    flex-direction: column;
+    /* border-bottom: 1px solid var(--primary-color); */
+    justify-content: center;
+    border-bottom: 1px solid var(--primary-color);
+    box-shadow: 0 -3px 10px var(--primary-color);
+  }
+
+  .navbar ul {
+    padding: 0;
+  }
+  .navbar h1 {
+    margin: 1rem 0 0 0;
+  }
 }
