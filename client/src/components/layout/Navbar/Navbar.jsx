@@ -9,7 +9,7 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/">Developers</Link>
+        <Link to="/profiles">Developers</Link>
       </li>
       <li>
         <Link to="/dashboard">Dashboard</Link>
@@ -25,7 +25,7 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/">Developers</Link>
+        <Link to="/profiles">Developers</Link>
       </li>
       <li>|</li>
       <li>

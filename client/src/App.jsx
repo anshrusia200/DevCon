@@ -10,7 +10,11 @@ import Login from "./components/auth/Login/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import CreateProfile from "./components/profile-form/CreateProfile";
+import AddExperience from "./components/profile-form/AddExperience";
+import AddEducation from "./components/profile-form/AddEducation";
 import EditProfile from "./components/profile-form/EditProfile";
+import Profiles from "./components/profiles/Profiles";
+import SingleProfile from "./components/profile/SingleProfile";
 /*********
  * REDUX *
  *********/
@@ -38,7 +42,8 @@ const App = () => {
           <Route exact path="/" element={<Landing />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-
+          <Route path="/profiles" element={<Profiles />} />
+          <Route path="/profile/:id" element={<SingleProfile />} />
           <Route
             path="/dashboard"
             element={
@@ -50,6 +55,8 @@ const App = () => {
             <Route index element={<Dashboard />} />
             <Route path="create-profile" element={<CreateProfile />} />
             <Route path="edit-profile" element={<EditProfile />} />
+            <Route path="add-experience" element={<AddExperience />} />
+            <Route path="add-education" element={<AddEducation />} />
           </Route>
         </Routes>
       </BrowserRouter>

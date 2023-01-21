@@ -717,7 +717,7 @@ const Landing = ({ auth: { isAuthenticated, loading } }) => {
           ) : (
             ""
           )}
-          <Link to="/">
+          <Link to="/profiles">
             <button className="btn2 glow-btn">View Developers</button>
           </Link>
         </div>

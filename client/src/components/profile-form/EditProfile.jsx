@@ -53,7 +53,7 @@ const EditProfile = ({
       bio: loading || !profile.bio ? "" : profile.bio,
       twitter: loading || !profile.twitter ? "" : profile.twitter,
       facebook: loading || !profile.facebook ? "" : profile.facebook,
-      likedin: loading || !profile.likedin ? "" : profile.likedin,
+      linkedin: loading || !profile.linkedin ? "" : profile.linkedin,
       youtube: loading || !profile.youtube ? "" : profile.youtube,
       instagram: loading || !profile.instagram ? "" : profile.instagram,
     });
@@ -117,7 +117,7 @@ const EditProfile = ({
                 value={website}
               />
               <small className="form-text">
-                Could be your own or a company website
+                Provide full URL of your own or a company website.
               </small>
             </div>
             <div className="form-group">
@@ -184,6 +184,11 @@ const EditProfile = ({
 
             {socialOpen ? (
               <>
+                <div className="form-group">
+                  <small className="form-text">
+                    Provide full URL like <u>https://youtube.com</u>
+                  </small>
+                </div>
                 <div className="form-group social-input">
                   <input
                     type="text"

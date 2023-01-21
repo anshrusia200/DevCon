@@ -52,6 +52,7 @@ Link {
   font-size: 2rem;
   margin: 0;
   font-weight: bold;
+  text-align: center;
 }
 .other-option {
   margin: 5px;
@@ -305,4 +306,14 @@ Link {
   z-index: -2;
   margin-left: -1rem;
   margin-top: -2rem;
+}
+
+.no-data {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.no-data img {
+  width: 13rem;
+  height: 15rem;
 }

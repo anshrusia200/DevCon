@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require("../../middleware/auth");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const Post = require("../../models/Post");
 const { route } = require("./user");
 const { check, validationResult } = require("express-validator");
 const request = require("request");
@@ -131,15 +132,17 @@ router.get("/user/:user_id", async (req, res) => {
 
 router.delete("/", auth, async (req, res) => {
   try {
+    //Remove Posts
+    await Post.deleteMany({ user: req.user.id });
     //Remove Profile of the user
     await Profile.findOneAndRemove({ user: req.user.id });
     //Remove User
     await User.findOneAndRemove({ _id: req.user.id });
 
-    res.json({ msg: "User Removed " });
+    return res.json({ msg: "User Removed " });
   } catch (e) {
     console.error(e.message);
-    res.status(500).send("Server Error");
+    return res.status(500).send("Server Error");
   }
 });
 
@@ -193,9 +196,9 @@ router.delete("/experience/:exp_id", auth, async (req, res) => {
 
     profile.experience.splice(removeIndex, 1);
     await profile.save();
-    res.json("exp removed");
+    res.json(profile);
   } catch (e) {
-    console.log(e.message);
+    console.log(e);
     res.status(500).send("Server Error");
   }
 });
@@ -203,7 +206,7 @@ router.delete("/experience/:exp_id", auth, async (req, res) => {
 const validations_education = [
   check("school", "School is required").notEmpty(),
   check("degree", "Degree is required").notEmpty(),
-  check("fieldofstudy", "Field of study date is required").notEmpty(),
+  check("fieldofstudy", "Field of study is required").notEmpty(),
   check("from", "From date is required").notEmpty(),
 ];
 
@@ -252,7 +255,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
 
     profile.education.splice(removeIndex, 1);
     await profile.save();
-    res.json("edu removed");
+    res.json(profile);
   } catch (e) {
     console.log(e.message);
     res.status(500).send("Server Error");

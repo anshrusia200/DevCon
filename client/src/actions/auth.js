@@ -50,11 +50,11 @@ export const register =
     try {
       const res = await axios.post("/api/users", body, config);
       dispatch(setAlert("User Registered successfully", "success"));
-      dispatch(loadUser());
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
+      dispatch(loadUser());
     } catch (err) {
       const errors = err.response.data.errors;
       console.log(errors);

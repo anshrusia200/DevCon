@@ -41,6 +41,8 @@ const CreateProfile = ({ createNewProfile }) => {
           <i className="fas fa-user"></i> Let's get some information to make
           your profile stand out
         </h3>
+        <small>* = required field</small>
+
         <div className="form-wrapper">
           <form className="form" onSubmit={onSubmit}>
             <div className="form-group">
@@ -78,7 +80,7 @@ const CreateProfile = ({ createNewProfile }) => {
                 onChange={onChange}
               />
               <small className="form-text">
-                Could be your own or a company website
+                Provide full URL of your own or a company website.
               </small>
             </div>
             <div className="form-group">
@@ -141,6 +143,11 @@ const CreateProfile = ({ createNewProfile }) => {
 
             {socialOpen ? (
               <>
+                <div className="form-group">
+                  <small className="form-text">
+                    Tell us a little about yourself
+                  </small>
+                </div>
                 <div className="form-group social-input">
                   <input
                     type="text"
