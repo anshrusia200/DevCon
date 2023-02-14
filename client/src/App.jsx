@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 import { useState, Fragment, useEffect } from "react";
 import "./App.css";
 import VectorImage from "./components/design/VectorImage/VectorImage";
-import Navbar from "./components/layout/Navbar/Navbar";
+import Nav from "./components/layout/Navbar/Nav";
 import Landing from "./components/layout/Landing/Landing";
 import Register from "./components/auth/Register/Register";
 import Login from "./components/auth/Login/Login";
@@ -15,6 +15,10 @@ import AddEducation from "./components/profile-form/AddEducation";
 import EditProfile from "./components/profile-form/EditProfile";
 import Profiles from "./components/profiles/Profiles";
 import SingleProfile from "./components/profile/SingleProfile";
+import Posts from "./components/posts/Posts";
+import PostItem from "./components/posts/PostItem";
+import Post from "./components/posts/Post";
+import Write from "./components/write/Write";
 /*********
  * REDUX *
  *********/
@@ -35,30 +39,45 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Navbar />
+        <Nav />
         <Alert />
         {/* <VectorImage /> */}
-        <Routes>
-          <Route exact path="/" element={<Landing />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profiles" element={<Profiles />} />
-          <Route path="/profile/:id" element={<SingleProfile />} />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Outlet />
-              </PrivateRoute>
-            }
-          >
-            <Route index element={<Dashboard />} />
-            <Route path="create-profile" element={<CreateProfile />} />
-            <Route path="edit-profile" element={<EditProfile />} />
-            <Route path="add-experience" element={<AddExperience />} />
-            <Route path="add-education" element={<AddEducation />} />
-          </Route>
-        </Routes>
+        <div className="route-wrapper">
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profiles" element={<Profiles />} />
+            <Route path="/profile/:id" element={<SingleProfile />} />
+            <Route
+              path="/posts"
+              element={
+                <PrivateRoute>
+                  <Outlet />
+                </PrivateRoute>
+              }
+            >
+              <Route index element={<Posts />} />
+              <Route path=":id" element={<Post />} />
+              <Route path="write" element={<Write />} />
+            </Route>
+
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Outlet />
+                </PrivateRoute>
+              }
+            >
+              <Route index element={<Dashboard />} />
+              <Route path="create-profile" element={<CreateProfile />} />
+              <Route path="edit-profile" element={<EditProfile />} />
+              <Route path="add-experience" element={<AddExperience />} />
+              <Route path="add-education" element={<AddEducation />} />
+            </Route>
+          </Routes>
+        </div>
       </BrowserRouter>
     </Provider>
   );

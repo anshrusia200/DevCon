@@ -699,8 +699,8 @@ const Landing = ({ auth: { isAuthenticated, loading } }) => {
         </div>
       </div>
       <div className="content">
-        <div className="top">
-          <h1>DevCon</h1>
+        <div className="top-content">
+          <h1 className="page-head">DevCon</h1>
           <ul>
             <li>Write Blogs, Make Posts</li>
             <li>|</li>
@@ -715,7 +715,9 @@ const Landing = ({ auth: { isAuthenticated, loading } }) => {
               <button className="glow-btn">Get Started</button>
             </Link>
           ) : (
-            ""
+            <Link to="/posts">
+              <button className="glow-btn">Read Posts</button>
+            </Link>
           )}
           <Link to="/profiles">
             <button className="btn2 glow-btn">View Developers</button>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const ProfileAbout = ({ profile }) => {
   return (
-    <div>
+    <div className="profile-bio">
       <div className="bio">
         <h1>{profile.user.name}'s Bio</h1>
         <p>

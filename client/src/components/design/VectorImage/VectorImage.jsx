@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import axios from "axios";
 const VectorImage = ({ auth: { user } }) => {
-  const [color, setColor] = useState("#EB00FF");
+  const [color, setColor] = useState("#0e0e0e");
   const avatar = `https:${user && user.avatar}`;
   console.log(avatar);
   axios

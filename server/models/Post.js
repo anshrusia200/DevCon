@@ -23,6 +23,10 @@ const PostSchema = new mongoose.Schema({
       },
     },
   ],
+  imageUrl: {
+    type: String,
+    default: "",
+  },
   comments: [
     {
       user: {

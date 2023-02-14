@@ -3,8 +3,12 @@ import PropTypes from "prop-types";
 import moment from "moment";
 const ProfileEducation = ({ education }) => {
   return (
-    <div>
-      <h2>{education.school}</h2>
+    <div className="profile-contents">
+      <h2 className="school">
+        {" "}
+        <i class="fa-solid fa-school"></i> {education.school}
+      </h2>
+
       <p>
         {moment(education.from).format("MMM YYYY")} -{" "}
         {education.current ? (
@@ -20,13 +24,13 @@ const ProfileEducation = ({ education }) => {
         )}
       </p>
       <p>
-        <b>Degree</b>: {education.degree}
+        <b>Degree&nbsp;</b>: {education.degree}
       </p>
       <p>
-        <b>Field of Study</b>: {education.fieldofstudy}
+        <b>Field of Study&nbsp;</b>: {education.fieldofstudy}
       </p>
       <p>
-        <b>Description</b>:{" "}
+        <b>Description&nbsp;</b>:{" "}
         {education.description ? (
           <>{education.description}</>
         ) : (

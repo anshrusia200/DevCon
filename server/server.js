@@ -3,7 +3,7 @@ const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 const app = express();
 dotenv.config();
-
+const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000;
 
 /********************
@@ -16,7 +16,8 @@ connectDB();
  * INIT MIDDLEWARE *
  *******************/
 app.use(express.json());
-
+app.use(bodyParser.json({ limit: "10mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.get("/", async (req, res) => {
   res.send("API running");
 });

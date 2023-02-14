@@ -1,0 +1,118 @@
+.top {
+  width: 100%;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Raleway", sans-serif;
+  z-index: 999;
+  background-color: #0e0e0e;
+  margin-bottom: 2rem;
+  /* padding: 1rem 0; */
+}
+
+.topCenter {
+  flex: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.topList {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 0;
+}
+.topListItem {
+  margin: 1.5rem;
+  font-size: 1.2rem;
+  font-size: 1.2rem;
+  color: #fff;
+}
+.topListItem:hover {
+  color: var(--primary-color);
+}
+.logo {
+  font-size: 1.5rem;
+  padding: 2rem;
+}
+.hamburger {
+  width: 40px;
+  display: none;
+}
+.bar {
+  position: relative;
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  transition: 0.25s ease-in-out;
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+}
+@media only screen and (max-width: 844px) {
+  .top {
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+  }
+
+  .topCenter {
+    order: 2;
+    flex: 2;
+    justify-content: flex-end;
+    padding: 2rem;
+  }
+
+  .topList {
+    display: block;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    background-color: rgb(33, 33, 33);
+    color: #fff;
+    text-align: center;
+    width: 70%;
+    height: 100vh;
+    left: 0;
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+  }
+  .close {
+    left: -100%;
+  }
+  .topListItem {
+    margin: 3rem 0;
+  }
+  .hamburger {
+    display: block;
+  }
+  .cross div:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 8px;
+    background-color: var(--primary-color);
+  }
+
+  .cross div:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+  }
+
+  .cross div:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: -8px;
+    background-color: var(--primary-color);
+  }
+}

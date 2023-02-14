@@ -1,0 +1,3 @@
+ - when all 5 posts are deleted load more posts.
+ - add github repo star option 
+ - complete frontend for all the pages

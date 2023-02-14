@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { login } from "../../../actions/auth";
 import Spinner from "../../layout/Spinner/Spinner";
+import Footer from "../../layout/Footer/Footer";
 
 function Login({ login, isAuthenticated, loading }) {
   const [formData, setFormData] = useState({
@@ -26,46 +27,49 @@ function Login({ login, isAuthenticated, loading }) {
 
   if (isAuthenticated) {
     console.log("checked");
-    return <Navigate to="/dashboard" replace={true} />;
+    return <Navigate to="/" replace={true} />;
   }
 
   return (
-    <section className="auth-container">
-      <p className="lead">Login</p>
-      <p className="other-option">
-        Don't have an account ? <Link to="/register">Register</Link>
-      </p>
-      <form className="form" onSubmit={onSubmit}>
-        {/* <div className="form-group">
+    <div>
+      <section className="auth-container">
+        <p className="lead">Login</p>
+        <p className="other-option">
+          Don't have an account ? <Link to="/register">Register</Link>
+        </p>
+        <form className="form" onSubmit={onSubmit}>
+          {/* <div className="form-group">
           <input type="text" placeholder="Name" name="name" required />
         </div> */}
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={onChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            minLength="6"
-            onChange={onChange}
-          />
-        </div>
+          <div className="form-group">
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              value={email}
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              minLength="6"
+              onChange={onChange}
+            />
+          </div>
 
-        <div className="form-btn">
-          <button type="submit" className="glow-btn" id="btn-register">
-            {loading ? <Spinner /> : <span>Login</span>}
-          </button>
-        </div>
-      </form>
-    </section>
+          <div className="form-btn">
+            <button type="submit" className="glow-btn" id="btn-register">
+              {loading ? <Spinner /> : <span>Login</span>}
+            </button>
+          </div>
+        </form>
+      </section>
+      <Footer />
+    </div>
   );
 }
 

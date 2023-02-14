@@ -29,8 +29,8 @@ const Dashboard = ({
         <>
           {!loading && profile !== null ? (
             <div className="dashboard">
-              <div className="top">
-                <div className="profile">
+              <div className="dash-top">
+                <div className="dash-profile">
                   <img src={user && user.avatar} alt="User Profile Image" />
                 </div>
                 <DashboardOptions />

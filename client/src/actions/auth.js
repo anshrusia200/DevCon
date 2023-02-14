@@ -11,6 +11,7 @@ import {
   LOGIN_SUCCESS,
   LOGOUT,
   CLEAR_PROFILE,
+  CLEAR_POST,
 } from "./types";
 
 /*************
@@ -90,6 +91,7 @@ export const login = (email, password) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (err) {
+    console.log(err);
     const errors = err.response.data.errors;
     console.log(errors);
     if (errors) {
@@ -107,6 +109,7 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("token");
+  dispatch({ type: CLEAR_POST });
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
 };
