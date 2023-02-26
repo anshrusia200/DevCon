@@ -9,7 +9,7 @@
     "dev:client": "npm run dev --prefix client",
     "dev": "npm-run-all -n -l -p dev:*",
     "build:client": "npm run build --prefix client",
-    "heroku-postbuild": "npm run build:client"
+    "postbuild": "npm run build:client"
   },
   "author": "",
   "license": "ISC",
