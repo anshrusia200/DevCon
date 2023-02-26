@@ -5,6 +5,7 @@ const app = express();
 dotenv.config();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000;
+const path = require("path");
 
 /********************
  * CONNECT DATABASE *
@@ -18,8 +19,16 @@ connectDB();
 app.use(express.json());
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+
 app.get("/", async (req, res) => {
-  res.send("API running");
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.resolve(__dirname, "../", "client", "dist")));
+    res.sendFile(
+      path.resolve(__dirname, "../", "client", "dist", "index.html")
+    );
+  } else {
+    res.send("API running");
+  }
 });
 
 /*****************

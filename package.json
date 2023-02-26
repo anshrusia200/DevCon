@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server/server.js",
     "dev:server": "nodemon server/server.js",
     "dev:client": "npm run dev --prefix client",
-    "dev": "npm-run-all -n -l -p dev:*"
+    "dev": "npm-run-all -n -l -p dev:*",
+    "build:client": "npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
