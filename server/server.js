@@ -20,16 +20,18 @@ app.use(express.json());
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 
-app.get("/", async (req, res) => {
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.resolve(__dirname, "../", "client", "dist")));
-    res.sendFile(
-      path.resolve(__dirname, "../", "client", "dist", "index.html")
-    );
-  } else {
-    res.send("API running");
-  }
-});
+// deployment setup
+if (process.env.NODE_ENV === "production") {
+  const __directory = path.resolve();
+  app.use(express.static(path.join(__directory, "/client/dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__directory, "client", "dist", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API service running 🚀");
+  });
+}
 
 /*****************
  * DEFINE ROUTER *
