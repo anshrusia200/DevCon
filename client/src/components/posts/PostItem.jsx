@@ -31,8 +31,7 @@ const PostItem = ({ post, auth, addLikes, removeLikes, deletePost }) => {
             <div dangerouslySetInnerHTML={{ __html: post.text }} />
           </TypographyStylesProvider> */}
           <span>
-            {moment(post.date).format("MMM Do YYYY")} |{" "}
-            {readingTime(post.text).text}
+            {moment(post.date).format("MMM Do YYYY")} | {readingTime(post.text)}
           </span>
           <div className="post-buttons">
             <Link to={`/profile/${post.user}`}>

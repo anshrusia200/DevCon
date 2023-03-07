@@ -21,6 +21,19 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 
 // deployment setup
+
+/*****************
+ * DEFINE ROUTER *
+*****************/
+
+app.use("/api/users", require("./routes/api/user"));
+app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/profile", require("./routes/api/profile"));
+app.use("/api/posts", require("./routes/api/posts"));
+
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
 if (process.env.NODE_ENV === "production") {
   const __directory = path.resolve();
   app.use(express.static(path.join(__directory, "/client/dist")));
@@ -32,16 +45,3 @@ if (process.env.NODE_ENV === "production") {
     res.send("API service running 🚀");
   });
 }
-
-/*****************
- * DEFINE ROUTER *
- *****************/
-
-app.use("/api/users", require("./routes/api/user"));
-app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/profile", require("./routes/api/profile"));
-app.use("/api/posts", require("./routes/api/posts"));
-
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
-});
