@@ -35,7 +35,7 @@ const Posts = ({
     <section className="posts">
       <div className="posts-container">
         {posts.map((post) => (
-          <PostItem post={post} key={post._id} />
+          <PostItem key={post._id} post={post} />
         ))}
       </div>
       {allPosts || posts.length === 0 ? (
