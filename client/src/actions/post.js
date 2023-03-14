@@ -18,6 +18,12 @@ import {
   STATE_RESET,
 } from "./types";
 
+export const loadingPosts = () => async (dispatch) => {
+  dispatch({
+    type: LOADING_POST,
+  });
+};
+
 //get posts
 export const getPosts = (page) => async (dispatch) => {
   try {
@@ -217,11 +223,11 @@ export const add_post = (formData) => async (dispatch) => {
     });
     console.log("sent");
   } catch (e) {
-    console.log(e);
-    // dispatch({
-    //   type: POSTS_ERROR,
-    //   payload: { msg: err.response.statusText, status: err.response.status },
-    // });
+    dispatch(setAlert(e.response.statusText, "danger"));
+    dispatch({
+      type: POSTS_ERROR,
+      payload: { msg: e.response.statusText, status: e.response.status },
+    });
   }
 };
 // export const imageUpload = async (image, publicId) => {

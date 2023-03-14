@@ -89,7 +89,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               value={password2}
             />
           </div>
-          <div className="form-btn">
+          <div className="form-group form-btn">
             <button type="submit" className="glow-btn" id="btn-register">
               {loading ? <Spinner /> : <span>Register</span>}
             </button>

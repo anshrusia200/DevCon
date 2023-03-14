@@ -19,6 +19,7 @@ import Posts from "./components/posts/Posts";
 import PostItem from "./components/posts/PostItem";
 import Post from "./components/posts/Post";
 import Write from "./components/write/Write";
+import GithubModal from "./components/layout/GithubModal/GithubModal";
 /*********
  * REDUX *
  *********/
@@ -33,14 +34,26 @@ if (localStorage.token) {
 }
 
 const App = () => {
+  const MINUTE_MS = 120000;
+  const [githubStarModal, setGithubStarModal] = useState(false);
   useEffect(() => {
     store.dispatch(loadUser());
+
+    const interval = setInterval(() => {
+      setGithubStarModal(true);
+    }, MINUTE_MS);
+    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
   }, []);
+
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Nav />
         <Alert />
+        <GithubModal
+          visible={githubStarModal}
+          visibleChange={setGithubStarModal}
+        />
         {/* <VectorImage /> */}
         <div className="route-wrapper">
           <Routes>

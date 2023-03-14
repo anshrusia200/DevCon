@@ -61,7 +61,7 @@ function Login({ login, isAuthenticated, loading }) {
             />
           </div>
 
-          <div className="form-btn">
+          <div className="form-group form-btn">
             <button type="submit" className="glow-btn" id="btn-register">
               {loading ? <Spinner /> : <span>Login</span>}
             </button>

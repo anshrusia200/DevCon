@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import { add_post } from "../../actions/post";
+import { add_post, loadingPosts } from "../../actions/post";
+import { setAlert } from "../../actions/alert";
 import { connect } from "react-redux";
 import axios from "axios";
 import { RichTextEditor } from "@mantine/rte";
 import { handleImageUpload } from "../../utilities/imageUpload";
 import Spinner from "../layout/Spinner/Spinner";
 
-const Write = ({ add_post, post: { loading } }) => {
+const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [preview, setPreview] = useState();
@@ -30,7 +31,7 @@ const Write = ({ add_post, post: { loading } }) => {
   }, [image]);
 
   const [textValue, setTextValue] = useState("");
-
+  const canPublish = Boolean(textValue) && Boolean(title);
   const imageUpload = async () => {
     if (image !== "") {
       try {
@@ -75,7 +76,13 @@ const Write = ({ add_post, post: { loading } }) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    imageUpload();
+    if (canPublish) {
+      loadingPosts();
+      imageUpload();
+    } else {
+      if (title === "") setAlert("Title not provided", "danger");
+      if (textValue === "") setAlert("Content not provided", "danger");
+    }
   };
 
   return (
@@ -125,8 +132,14 @@ const Write = ({ add_post, post: { loading } }) => {
               style={{ display: "none" }}
               onChange={(e) => setImage(e.target.files[0])}
             />
-            <button className="glow-btn" type="submit">
-              <i className="fas fa-upload" aria-hidden="true"></i> Publish
+            <button className="glow-btn" type="submit" disabled={loading}>
+              {loading ? (
+                <Spinner />
+              ) : (
+                <>
+                  <i className="fas fa-upload" aria-hidden="true"></i> Publish
+                </>
+              )}{" "}
             </button>
           </div>
         </div>
@@ -137,9 +150,13 @@ const Write = ({ add_post, post: { loading } }) => {
 
 Write.propTypes = {
   add_post: PropTypes.func.isRequired,
+  loadingPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
+  setAlert: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   post: state.post,
 });
-export default connect(mapStateToProps, { add_post })(Write);
+export default connect(mapStateToProps, { add_post, setAlert, loadingPosts })(
+  Write
+);

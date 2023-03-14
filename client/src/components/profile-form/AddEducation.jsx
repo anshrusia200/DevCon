@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addEducation } from "../../actions/profile";
@@ -111,9 +111,9 @@ const AddEducation = ({ addEducation }) => {
               ></textarea>
             </div>
             <input type="submit" className="btn btn-primary my-1" />
-            <a className="btn btn-light my-1" href="dashboard.html">
+            <Link className="" to="/dashboard">
               Go Back
-            </a>
+            </Link>
           </form>
         </div>
       </section>
