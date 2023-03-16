@@ -7,6 +7,7 @@ import Nav from "./components/layout/Navbar/Nav";
 import Landing from "./components/layout/Landing/Landing";
 import Register from "./components/auth/Register/Register";
 import Login from "./components/auth/Login/Login";
+import ForgotPassword from "./components/auth/ForgotPassword/ForgotPassword";
 import Dashboard from "./components/dashboard/Dashboard";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import CreateProfile from "./components/profile-form/CreateProfile";
@@ -20,6 +21,7 @@ import PostItem from "./components/posts/PostItem";
 import Post from "./components/posts/Post";
 import Write from "./components/write/Write";
 import GithubModal from "./components/layout/GithubModal/GithubModal";
+import PasswordReset from "./components/auth/PasswordReset/PasswordReset";
 /*********
  * REDUX *
  *********/
@@ -34,7 +36,7 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  const MINUTE_MS = 120000;
+  const MINUTE_MS = 180000;
   const [githubStarModal, setGithubStarModal] = useState(false);
   useEffect(() => {
     store.dispatch(loadUser());
@@ -43,7 +45,7 @@ const App = () => {
       setGithubStarModal(true);
     }, MINUTE_MS);
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
-  }, []);
+  }, [githubStarModal]);
 
   return (
     <Provider store={store}>
@@ -60,6 +62,8 @@ const App = () => {
             <Route path="/" element={<Landing />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password/:id" element={<PasswordReset />} />
             <Route path="/profiles" element={<Profiles />} />
             <Route path="/profile/:id" element={<SingleProfile />} />
             <Route

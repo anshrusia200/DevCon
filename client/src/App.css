@@ -50,6 +50,20 @@ Link {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.main-bg {
+  background-image: url(../src/assets/Signup.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 80vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-bg {
+    background-image: url(../src/assets/Signup2.png);
+    background-position: center;
+  }
+}
 
 .lead {
   font-size: 2rem;
@@ -58,7 +72,8 @@ Link {
   text-align: center;
 }
 .other-option {
-  margin: 5px;
+  margin: 10px auto;
+  text-align: center;
 }
 .form {
   display: flex;
@@ -274,6 +289,16 @@ Link {
   border: none;
   font-family: "Raleway", sans-serif;
 }
+.form-show-pass {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+.form-show-pass input[type="checkbox"] {
+  width: 15px;
+  color: #818181;
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -1126,9 +1151,10 @@ Link {
   flex-direction: column;
   align-items: center;
 }
+
 .dash-profile {
-  height: 10rem;
-  width: 10rem;
+  height: 9rem;
+  width: 9rem;
   border-radius: 50%;
 }
 .dash-profile img {

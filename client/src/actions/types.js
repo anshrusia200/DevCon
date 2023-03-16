@@ -28,3 +28,6 @@ export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const ALL_POSTS = "ALL_POSTS";
 export const STATE_RESET = "STATE_RESET";
+export const PASS_EMAIL_SENT = "PASS_EMAIL_SENT";
+export const PASS_RESET = "PASS_RESET";
+export const PASS_RESET_FAIL = "PASS_RESET_FAIL";

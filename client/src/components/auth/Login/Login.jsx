@@ -10,6 +10,7 @@ import Spinner from "../../layout/Spinner/Spinner";
 import Footer from "../../layout/Footer/Footer";
 
 function Login({ login, isAuthenticated, loading }) {
+  const [showPass, setShowPass] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -31,7 +32,7 @@ function Login({ login, isAuthenticated, loading }) {
   }
 
   return (
-    <div>
+    <div className="main-bg">
       <section className="auth-container">
         <p className="lead">Login</p>
         <p className="other-option">
@@ -52,7 +53,7 @@ function Login({ login, isAuthenticated, loading }) {
           </div>
           <div className="form-group">
             <input
-              type="password"
+              type={showPass ? "text" : "password"}
               placeholder="Password"
               name="password"
               value={password}
@@ -60,11 +61,23 @@ function Login({ login, isAuthenticated, loading }) {
               onChange={onChange}
             />
           </div>
-
+          <div className="form-show-pass">
+            <input
+              type="checkbox"
+              name="showPass"
+              id="showPass"
+              onClick={(e) => setShowPass(e.target.checked)}
+            />
+            &nbsp;
+            <label for="showPass">Show password</label>
+          </div>
           <div className="form-group form-btn">
             <button type="submit" className="glow-btn" id="btn-register">
               {loading ? <Spinner /> : <span>Login</span>}
             </button>
+          </div>
+          <div className="other-option">
+            <Link to="/forgot-password">Forgot Password ?</Link>
           </div>
         </form>
       </section>

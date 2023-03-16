@@ -11,6 +11,7 @@ import PropTypes from "prop-types";
 import Footer from "../../layout/Footer/Footer";
 
 function Register({ setAlert, register, isAuthenticated, loading }) {
+  const [showPass, setShowPass] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,7 +39,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
   }
 
   return (
-    <div>
+    <div className="main-bg">
       <section className="auth-container">
         <p className="lead">Create Account</p>
         <p className="other-option">
@@ -71,7 +72,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
           </div>
           <div className="form-group">
             <input
-              type="password"
+              type={showPass ? "text" : "password"}
               placeholder="Password"
               name="password"
               // minLength="6"
@@ -81,13 +82,23 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
           </div>
           <div className="form-group">
             <input
-              type="password"
+              type={showPass ? "text" : "password"}
               placeholder="Confirm Password"
               name="password2"
               // minLength="6"
               onChange={onChange}
               value={password2}
             />
+          </div>
+          <div className="form-show-pass">
+            <input
+              type="checkbox"
+              name="showPass"
+              id="showPass"
+              onClick={(e) => setShowPass(e.target.checked)}
+            />
+            &nbsp;
+            <label for="showPass">Show password</label>
           </div>
           <div className="form-group form-btn">
             <button type="submit" className="glow-btn" id="btn-register">
