@@ -10,12 +10,11 @@ const cors = require("cors");
 /********************
  * CONNECT DATABASE *
  ********************/
-var corsOptions = {
-  origin: "https://ondevcon.netlify.com",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
-
+app.use(
+  cors({
+    origin: [/netlify\.app$/, /localhost:\d{4}$/],
+  })
+);
 connectDB();
 
 /*******************
