@@ -6,7 +6,7 @@ dotenv.config();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000;
 const path = require("path");
-
+const cors = require("cors");
 /********************
  * CONNECT DATABASE *
  ********************/
@@ -17,6 +17,7 @@ connectDB();
  * INIT MIDDLEWARE *
  *******************/
 app.use(express.json());
+app.use(cors());
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 
@@ -24,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 
 /*****************
  * DEFINE ROUTER *
-*****************/
+ *****************/
 
 app.use("/api/users", require("./routes/api/user"));
 app.use("/api/auth", require("./routes/api/auth"));

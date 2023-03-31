@@ -19,6 +19,7 @@
     "cloudinary": "^1.33.0",
     "concurrent": "^0.3.2",
     "config": "^3.3.8",
+    "cors": "^2.8.5",
     "dateformat": "^5.0.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
