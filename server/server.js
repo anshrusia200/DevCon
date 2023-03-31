@@ -10,6 +10,11 @@ const cors = require("cors");
 /********************
  * CONNECT DATABASE *
  ********************/
+var corsOptions = {
+  origin: "https://ondevcon.netlify.com",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions));
 
 connectDB();
 
@@ -17,11 +22,6 @@ connectDB();
  * INIT MIDDLEWARE *
  *******************/
 app.use(express.json());
-var corsOptions = {
-  origin: "https://ondevcon.netlify.com",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 
