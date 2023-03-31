@@ -17,7 +17,11 @@ connectDB();
  * INIT MIDDLEWARE *
  *******************/
 app.use(express.json());
-app.use(cors());
+var corsOptions = {
+  origin: "https://devcon-backend-c3zc.onrender.com",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 
