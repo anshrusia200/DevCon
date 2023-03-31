@@ -5,7 +5,7 @@ import Spinner from "../layout/Spinner/Spinner";
 import NoData from "../design/NoData/NoData";
 import { getProfiles } from "../../actions/profile";
 import ProfileItem from "./ProfileItem";
-const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+const Profiles = ({ getProfiles, profile: { profiles = [], loading } }) => {
   useEffect(() => {
     getProfiles();
   }, []);
