@@ -12,9 +12,9 @@ body {
   line-height: 1.6;
   color: #fff;
 }
-/* .route-wrapper { */
-/* margin-top: 5rem; */
-/* } */
+.route-wrapper {
+  margin-top: 2rem;
+}
 button:active,
 input:active {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -440,6 +440,12 @@ Link {
 .publish-buttons label {
   padding: 0.5rem 0.7rem;
 }
+#poster {
+  margin: 0 1rem;
+}
+#publish {
+  margin: 0 1rem;
+}
 .right {
   display: flex;
   flex-direction: column;
@@ -689,7 +695,8 @@ Link {
 }
 
 .post-top {
-  width: 300px;
+  /* width: 300px */
+  width: 100%;
   display: flex;
   margin-bottom: 2rem;
 }
@@ -783,7 +790,8 @@ Link {
   /* right: 7%; */
   /* padding: 1rem; */
   overflow: auto;
-  background-color: #3f3f3f;
+  /* top: 5rem; */
+  background-color: #111112;
   border-radius: 5px;
   box-shadow: 0 0 2px #ccc;
 }
@@ -794,7 +802,7 @@ Link {
   background-color: #272727;
   margin: 0;
   text-align: center;
-  padding: 5px 0;
+  padding: 10px 0;
   z-index: 2;
 }
 .comment-form {
@@ -846,10 +854,16 @@ Link {
   right: 0;
   margin-right: 1rem;
   top: 20%;
-  background-color: #c1c2c5;
-  border: none;
-  border-radius: 2px;
+  background-color: transparent;
+  color: #ccc;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
   cursor: pointer;
+}
+.full-screen:hover {
+  color: rgb(241, 86, 255);
+  border: 1px solid rgb(241, 86, 255);
 }
 @media only screen and (max-width: 845px) {
   .content-wrapper {
@@ -1076,6 +1090,14 @@ Link {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
   row-gap: 1rem;
+}
+.github-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#no-repo {
+  margin: 0 auto;
 }
 .repo {
   background-color: #1c1f26;

@@ -1,3 +1,18 @@
- - when all 5 posts are deleted load more posts.
- - add github repo star option 
- - complete frontend for all the pages
+- check alignments throughtout the project - done
+- complete dashboard page
+- change comments div - done
+- give a delete button to the owner of the post in his dashboard with a section for viewing his posts
+- add meaningfull posts 
+- profile view section show no github repos when githubusername not provided - done
+- think of a better ui for the profile page
+- add more developer profiles
+- send join email
+- send confirmation email
+- show post read count in dashboard
+- add light dark theme
+- more than 5 posts loading on scroll and reedundant posts appearing 
+- improve single profile page ui
+- provide draft facilities
+- change write page ui
+- load background images via js
+- change page titles from blogon to devcon - done

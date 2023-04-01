@@ -9,7 +9,7 @@
   font-family: "Raleway", sans-serif;
   z-index: 999;
   background-color: #0e0e0e;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   /* padding: 1rem 0; */
 }
 
@@ -56,10 +56,11 @@
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
 }
+
 @media only screen and (max-width: 844px) {
   .top {
     justify-content: space-evenly;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
   }
 
   .topCenter {

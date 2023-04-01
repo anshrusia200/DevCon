@@ -66,8 +66,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               name="email"
             />
             <small className="form-text">
-              Note : This site uses Gravatar so if you want a profile image, use
-              a Gravatar email
+              Note : Please use a gravatar email
             </small>
           </div>
           <div className="form-group">

@@ -118,6 +118,7 @@ const Post = ({
                     sx={{
                       width: "90%",
                       overflow: "auto",
+                      overflowX: "hidden",
                       margin: "10px auto",
                       maxHeight: "200px",
                     }}

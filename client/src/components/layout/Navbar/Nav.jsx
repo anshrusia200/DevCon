@@ -18,39 +18,54 @@ function Navbar({ auth: { isAuthenticated, loading }, logout }) {
   };
   const authLinks = (
     <ul className={sideStatus ? "topList" : "close topList"}>
-      <Link to="/posts/write" className="link" onClick={sideToggle}>
-        <li className="topListItem">Write</li>
-      </Link>
-      <Link to="/profiles" className="link" onClick={sideToggle}>
-        <li className="topListItem">Developers</li>
-      </Link>
-      <Link to="/posts" className="link" onClick={sideToggle}>
-        <li className="topListItem">Posts</li>
-      </Link>
+      <li className="link">
+        <Link to="/posts/write" className="topListItem" onClick={sideToggle}>
+          Write
+        </Link>
+      </li>
+      <li className="link">
+        <Link to="/profiles" className="topListItem" onClick={sideToggle}>
+          Developers
+        </Link>
+      </li>
+      <li className="link">
+        <Link to="/posts" className="topListItem" onClick={sideToggle}>
+          Posts
+        </Link>
+      </li>
 
-      <Link to="/dashboard" className="link" onClick={sideToggle}>
-        <li className="topListItem">Dashboard</li>
-      </Link>
+      <li className="link">
+        <Link to="/dashboard" className="topListItem" onClick={sideToggle}>
+          Dashboard
+        </Link>
+      </li>
       <li>|</li>
-      <Link className="link" onClick={initiateLogout}>
-        <li className="topListItem">
+      <li className="link">
+        <Link className="topListItem" onClick={initiateLogout}>
           <i className="fas fa-sign-out-alt"></i>Logout
-        </li>
-      </Link>
+        </Link>
+      </li>
     </ul>
   );
   const guestLinks = (
     <ul className={sideStatus ? "topList" : "close topList"}>
-      <Link to="/profiles" className="link" onClick={sideToggle}>
-        <li className="topListItem">Developers</li>
-      </Link>
+      <li className="link">
+        {" "}
+        <Link to="/profiles" className="topListItem" onClick={sideToggle}>
+          Developers
+        </Link>
+      </li>
       <li>|</li>
-      <Link to="/register" className="link" onClick={sideToggle}>
-        <li className="topListItem">Register</li>
-      </Link>
-      <Link to="/login" className="link" onClick={sideToggle}>
-        <li className="topListItem">Login</li>
-      </Link>
+      <li className="link">
+        <Link to="/register" className="topListItem" onClick={sideToggle}>
+          Register
+        </Link>
+      </li>
+      <li className="link">
+        <Link to="/login" className="topListItem" onClick={sideToggle}>
+          Login
+        </Link>
+      </li>
     </ul>
   );
   return (

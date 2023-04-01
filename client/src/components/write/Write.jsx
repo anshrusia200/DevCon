@@ -102,6 +102,7 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
               width: "100%",
               height: "68vh",
               overflow: "scroll",
+              overflowX: "hidden",
               marginBottom: "20px",
             }}
             value={textValue}
@@ -122,7 +123,7 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
             />
           </div>
           <div className="writeFormGroup publish-buttons">
-            <label htmlFor="fileInput" className="glow-btn btn2">
+            <label htmlFor="fileInput" className="glow-btn btn2" id="poster">
               <i className="fas fa-plus"></i> Poster
             </label>
             <input
@@ -132,7 +133,12 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
               style={{ display: "none" }}
               onChange={(e) => setImage(e.target.files[0])}
             />
-            <button className="glow-btn" type="submit" disabled={loading}>
+            <button
+              className="glow-btn"
+              id="publish"
+              type="submit"
+              disabled={loading}
+            >
               {loading ? (
                 <Spinner />
               ) : (

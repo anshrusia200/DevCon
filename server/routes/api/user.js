@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 const User = require("../../models/User");
+const { sendWelcomeEmail } = require("../../utils/emails");
 
 //express validator rules
 const validations = [
@@ -66,6 +67,7 @@ router.post("/", validations, async (req, res) => {
         res.json({ token });
       }
     );
+    sendWelcomeEmail(user.name, user.email);
   } catch (e) {
     console.log(e);
     res.status(500).send("Server Error");
