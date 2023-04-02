@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
+const auth = require("../../middleware/auth");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 const User = require("../../models/User");
@@ -71,6 +72,24 @@ router.post("/", validations, async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(500).send("Server Error");
+  }
+});
+
+router.put("/draft", auth, async (req, res) => {
+  const { title, text } = req.body;
+  // const newDraft = {
+  //   title,
+  //   text,
+  // };
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    user.draft.title = title;
+    user.draft.text = text;
+    await user.save();
+    res.status(200).json(user);
+  } catch (e) {
+    console.error(e);
+    res.status(500).send("Could not save draft");
   }
 });
 

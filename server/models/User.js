@@ -17,6 +17,14 @@ const UserSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
+  draft: {
+    title: {
+      type: String,
+    },
+    text: {
+      type: String,
+    },
+  },
   date: {
     type: Date,
     default: Date.now,

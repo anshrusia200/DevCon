@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const { sendPasswordResetEmail } = require("../../utils/emails");
+
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password"); // -password will not return password

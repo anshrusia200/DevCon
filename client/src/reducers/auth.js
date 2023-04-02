@@ -11,6 +11,7 @@ import {
   PASS_EMAIL_SENT,
   PASS_RESET,
   PASS_RESET_FAIL,
+  DRAFT_SAVED,
 } from "../actions/types";
 const initialState = {
   token: localStorage.getItem("token"),
@@ -45,7 +46,11 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
       };
-
+    case DRAFT_SAVED:
+      return {
+        ...state,
+        user: payload,
+      };
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:

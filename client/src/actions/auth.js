@@ -15,6 +15,7 @@ import {
   PASS_EMAIL_SENT,
   PASS_RESET,
   PASS_RESET_FAIL,
+  DRAFT_SAVED,
 } from "./types";
 
 /*************
@@ -169,6 +170,34 @@ export const resetPassword = (userId, token, password) => async (dispatch) => {
     dispatch({
       type: PASS_RESET_FAIL,
     });
+  }
+};
+
+export const postDraft = (title, textValue) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const body = JSON.stringify({
+    title: title,
+    text: textValue,
+  });
+
+  try {
+    const res = await axios.put("/api/users/draft", body, config);
+    console.log(res);
+    dispatch({
+      type: DRAFT_SAVED,
+      payload: res.data,
+    });
+  } catch (e) {
+    console.log(e);
+    dispatch(setAlert(e.response.statusText, "primary"));
+    // dispatch({
+    //   type: POSTS_ERROR, //draft error
+    //   payload: { msg: e.response.statusText, status: e.response.status },
+    // });
   }
 };
 

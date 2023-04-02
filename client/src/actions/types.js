@@ -31,3 +31,4 @@ export const STATE_RESET = "STATE_RESET";
 export const PASS_EMAIL_SENT = "PASS_EMAIL_SENT";
 export const PASS_RESET = "PASS_RESET";
 export const PASS_RESET_FAIL = "PASS_RESET_FAIL";
+export const DRAFT_SAVED = "DRAFT_SAVED";

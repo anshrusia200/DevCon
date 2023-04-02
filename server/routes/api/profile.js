@@ -105,6 +105,7 @@ router.post("/", auth, validations_profile, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+
     res.json(profiles);
   } catch (e) {
     console.error(e.message);

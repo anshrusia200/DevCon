@@ -1,15 +1,24 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { add_post, loadingPosts } from "../../actions/post";
+import { postDraft } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
 import { connect } from "react-redux";
 import axios from "axios";
 import { RichTextEditor } from "@mantine/rte";
 import { handleImageUpload } from "../../utilities/imageUpload";
 import Spinner from "../layout/Spinner/Spinner";
+import _, { map } from "underscore";
 
-const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
-  const [title, setTitle] = useState("");
+const Write = ({
+  add_post,
+  postDraft,
+  loadingPosts,
+  post: { loading },
+  user: { draft },
+  setAlert,
+}) => {
+  const [title, setTitle] = useState(draft.title);
   const [image, setImage] = useState("");
   const [preview, setPreview] = useState();
   const ref = useRef("");
@@ -30,7 +39,7 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
     return () => URL.revokeObjectURL(objectUrl);
   }, [image]);
 
-  const [textValue, setTextValue] = useState("");
+  const [textValue, setTextValue] = useState(draft.text);
   const canPublish = Boolean(textValue) && Boolean(title);
   const imageUpload = async () => {
     if (image !== "") {
@@ -85,6 +94,17 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
     }
   };
 
+  const sendDraft = async () => {
+    await postDraft(title, textValue);
+    console.log("draft sent");
+  };
+  const valueChange = _.debounce(() => sendDraft(), 300);
+
+  const clearDraft = async () => {
+    setTitle("");
+    setTextValue("");
+    await postDraft("", "");
+  };
   return (
     <div className="write">
       <form className="writeForm" onSubmit={onSubmit} ref={ref}>
@@ -96,6 +116,7 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
             value={title}
             autoFocus={true}
             onChange={onchange_title}
+            onKeyUp={valueChange}
           />
           <RichTextEditor
             sx={{
@@ -107,9 +128,15 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
             }}
             value={textValue}
             onChange={onChange}
+            onKeyUp={valueChange}
             id="rte"
             onImageUpload={handleImageUpload}
           />
+          <div>
+            <button onClick={clearDraft} type="button" className="clr-draft">
+              <i class="fa fa-trash" aria-hidden="true"></i> &nbsp; Clear draft
+            </button>
+          </div>
         </div>
         <div className="form-section left">
           <div className="writeFormGroup img-wrapper">
@@ -148,6 +175,21 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
               )}{" "}
             </button>
           </div>
+          <div className="draft-note">
+            <ol>
+              <li>
+                {" "}
+                All your content is saved as draft in real time. You can leave
+                the content as is, and continue later hassle free.{" "}
+              </li>
+              <li>
+                <b>
+                  Embedded videos and some large images might not be saved as
+                  draft
+                </b>
+              </li>
+            </ol>
+          </div>
         </div>
       </form>
     </div>
@@ -156,13 +198,19 @@ const Write = ({ add_post, loadingPosts, post: { loading }, setAlert }) => {
 
 Write.propTypes = {
   add_post: PropTypes.func.isRequired,
+  postDraft: PropTypes.func.isRequired,
   loadingPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
   setAlert: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   post: state.post,
+  user: state.auth.user,
 });
-export default connect(mapStateToProps, { add_post, setAlert, loadingPosts })(
-  Write
-);
+export default connect(mapStateToProps, {
+  add_post,
+  setAlert,
+  postDraft,
+  loadingPosts,
+})(Write);

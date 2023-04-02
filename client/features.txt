@@ -16,3 +16,4 @@
 - change write page ui
 - load background images via js
 - change page titles from blogon to devcon - done
+-change mobile view navbar

@@ -483,6 +483,21 @@ Link {
   border-bottom: 1px solid #fff;
   color: #fff;
 }
+.clr-draft {
+  color: #ff8a00;
+  color: #ff3c3c;
+  background-color: transparent;
+  border: none;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.draft-note {
+  width: 95%;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
 @media only screen and (max-width: 800px) {
   .writeForm {
     flex-direction: column;
