@@ -125,11 +125,11 @@
   width: 100%;
 }
 
-h2 {
+.content1 h2 {
   height: 20px;
 }
 
-p {
+.content1 p {
   height: 50px;
 }
 

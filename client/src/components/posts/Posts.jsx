@@ -61,15 +61,15 @@ const Posts = ({
         {posts.map((post, index) => {
           if (posts.length === index + 1) {
             return (
-              <section className="post-wrapper" ref={lastPostElementRef}>
+              <div className="post" ref={lastPostElementRef}>
                 <PostItem key={post._id} post={post} />
-              </section>
+              </div>
             );
           } else {
             return (
-              <section className="post-wrapper">
+              <div className="post">
                 <PostItem key={post._id} post={post} />
-              </section>
+              </div>
             );
           }
         })}

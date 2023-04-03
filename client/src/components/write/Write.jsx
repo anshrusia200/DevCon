@@ -76,8 +76,7 @@ const Write = ({
       };
       ref.current.reset();
       add_post(formData);
-      setTextValue("");
-      setTitle("");
+      clearDraft();
     }
   };
   const onChange = (textValue) => {

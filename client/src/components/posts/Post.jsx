@@ -80,8 +80,7 @@ const Post = ({
   //   }
   // }, [isFullScreen]);
   return (
-    // <section className="post-wrapper">
-    <>
+    <section className="post-wrapper">
       {loading || post === null ? (
         <Spinner />
       ) : (
@@ -255,8 +254,7 @@ const Post = ({
           </div> */}
         </>
       )}
-    </>
-    // </section>
+    </section>
   );
 };
 
