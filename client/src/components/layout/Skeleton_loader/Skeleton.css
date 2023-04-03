@@ -93,6 +93,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   border: 1px solid #5a4f4f;
   padding: 20px 0;
+  opacity: 0.5;
 }
 .image1 {
   max-width: 90%;
