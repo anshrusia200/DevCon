@@ -9,11 +9,10 @@
 - send join email
 - send confirmation email
 - show post read count in dashboard
-- add light dark theme
 - more than 5 posts loading on scroll and reedundant posts appearing 
 - improve single profile page ui
-- provide draft facilities
-- change write page ui
+- provide draft facilities - done
+- change write page ui - done
 - load background images via js
 - change page titles from blogon to devcon - done
--change mobile view navbar
+- change mobile view navbar

@@ -20,12 +20,13 @@ const Posts = ({
   /******************************************************************
    * BELOW IS A COPY OF FETCH_MORE_POSTS THAT CAN ONLY BE CALLED ONCE *
    ******************************************************************/
-  var fetchMoreOnlyOnce = _.once(fetchMorePosts);
+  var fetchMoreOnlyOnce = _.once(() => fetchMorePosts());
 
   const handleScroll = async (e) => {
     const bottom =
       window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
-    if (posts.length % 5 == 0 && !loading && bottom && !allPosts) {
+    if (posts.length % 6 == 0 && !loading && bottom && !allPosts) {
+      console.log("Called");
       await fetchMoreOnlyOnce();
     }
   };
@@ -38,7 +39,8 @@ const Posts = ({
           <PostItem key={post._id} post={post} />
         ))}
       </div>
-      {allPosts || posts.length === 0 ? (
+      {allPosts ? (
+        // || posts.length === 0
         <>You have reached the end. No more posts to view</>
       ) : (
         <Skeleton />

@@ -1,4 +1,4 @@
-.skeleton {
+/* .skeleton {
   width: 80%;
   height: 100px;
   display: block;
@@ -37,5 +37,150 @@
   }
   100% {
     background-position: 100% 0, 120px 0, 120px 40px, 120px 80px;
+  }
+}
+
+.loader1 {
+  width: 350px;
+  height: 450px;
+  display: block;
+  margin: auto;
+  position: relative;
+  background: #1c1f26;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 1px solid #5a4f4f;
+}
+.loader1::after {
+  content: "";
+  width: calc(100% - 30px);
+  height: calc(100% - 15px);
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 100%
+    ),
+    linear-gradient(#696969 100px, transparent 0),
+    linear-gradient(#696969 16px, transparent 0),
+    linear-gradient(#696969 50px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 75px 175px, 100% 100px, 100% 16px, 100% 30px;
+  background-position: -185px 0, center 0, center 115px, center 142px;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+  to {
+    background-position: 185px 0, center 0, center 115px, center 142px;
+  }
+} */
+.cards1 {
+  display: flex;
+  width: 99%;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.card1 {
+  margin: 10px;
+  width: 350px;
+  background: #1c1f26;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #5a4f4f;
+  padding: 20px 0;
+}
+.image1 {
+  max-width: 90%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: 0 auto;
+}
+
+.content1 {
+  padding: 20px 30px;
+}
+
+.image1 {
+  background: #696969;
+  background: linear-gradient(110deg, #696969 8%, #a1a1a1 18%, #696969 33%);
+  border-radius: 10px;
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  height: 150px;
+}
+
+.content1 h2,
+.content1 p {
+  background: #eee;
+  background: linear-gradient(110deg, #696969 8%, #a1a1a1 18%, #696969 33%);
+  border-radius: 10px;
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  width: 100%;
+}
+
+h2 {
+  height: 20px;
+}
+
+p {
+  height: 50px;
+}
+
+.author1 {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #eee;
+  background: linear-gradient(110deg, #696969 8%, #a1a1a1 18%, #696969 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+.button1 {
+  width: 70%;
+  height: 40px;
+  border-radius: 10px;
+  background: #eee;
+  background: linear-gradient(110deg, #696969 8%, #a1a1a1 18%, #696969 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+.bottom1 {
+  width: 80%;
+  margin: 1.5rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.like1 {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+.like-btn1 {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background: #eee;
+  background: linear-gradient(110deg, #696969 8%, #a1a1a1 18%, #696969 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
   }
 }

@@ -184,8 +184,8 @@ const Write = ({
               </li>
               <li>
                 <b>
-                  Embedded videos and some large images might not be saved as
-                  draft
+                  Embedded videos, poster and some large images might not be
+                  saved as draft
                 </b>
               </li>
             </ol>

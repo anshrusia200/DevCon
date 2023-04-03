@@ -41,7 +41,7 @@ export const getPosts = (page) => async (dispatch) => {
       type: GET_POSTS,
       payload: res.data,
     });
-    if (res.data.length < 5) {
+    if (res.data.length < 6) {
       console.log(res.data);
       dispatch({
         type: ALL_POSTS,
@@ -68,7 +68,7 @@ export const fetchMorePosts = () => async (dispatch) => {
       console.log("loading called");
       const page = store.getState().post.page;
       const res = await axios.get(`/api/posts?page=${page + 1}`);
-      if (res.data.length == 0 || res.data.length < 5) {
+      if (res.data.length == 0 || res.data.length < 6) {
         console.log(res.data);
         dispatch({
           type: ALL_POSTS,

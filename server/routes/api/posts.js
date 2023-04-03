@@ -78,7 +78,7 @@ router.post(
 router.get("/", auth, async (req, res) => {
   try {
     const page = req.query.page;
-    const limit = 5;
+    const limit = 6;
     const posts = await Post.find()
       .sort({ date: -1 })
       .skip((page - 1) * limit)
