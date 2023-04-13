@@ -2,6 +2,7 @@ import {
   GET_POST,
   GET_POSTS,
   POSTS_ERROR,
+  CLEAR_POSTS,
   CLEAR_POST,
   UPDATE_LIKES,
   POST_CREATED,
@@ -12,6 +13,7 @@ import {
   NEXT_PAGE,
   ALL_POSTS,
   STATE_RESET,
+  INCREMENT_VISIT,
 } from "../actions/types";
 
 const initialState = {
@@ -37,7 +39,7 @@ export default function (state = initialState, action) {
     case POST_CREATED:
       return {
         ...state,
-        posts: payload.concat(state.posts),
+        posts: [payload, ...state.posts],
         loading: false,
       };
     case GET_POST:
@@ -45,6 +47,13 @@ export default function (state = initialState, action) {
         ...state,
         post: payload,
         loading: false,
+      };
+    case CLEAR_POSTS:
+      return {
+        ...state,
+        posts: [],
+        post: null,
+        error: {},
       };
     case CLEAR_POST:
       return {
@@ -87,12 +96,21 @@ export default function (state = initialState, action) {
         ),
         loading: false,
       };
+    case INCREMENT_VISIT:
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          visitCount: payload,
+        },
+      };
     case DELETE_POST:
       return {
         ...state,
         posts: state.posts.filter((post) => post._id !== payload),
         loading: false,
       };
+
     case ADD_COMMENT:
       return {
         ...state,

@@ -232,6 +232,7 @@ router.put("/education", auth, validations_education, async (req, res) => {
 
   try {
     const profile = await Profile.findOne({ user: req.user.id });
+    console.log(profile);
     profile.education.unshift(newEdu); // unshift pushes from front
 
     await profile.save();

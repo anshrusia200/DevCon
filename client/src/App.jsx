@@ -22,6 +22,8 @@ import Post from "./components/posts/Post";
 import Write from "./components/write/Write";
 import GithubModal from "./components/layout/GithubModal/GithubModal";
 import PasswordReset from "./components/auth/PasswordReset/PasswordReset";
+import VerifyEmail from "./components/auth/VerifyEmail/VerifyEmail";
+import VerifiedEmail from "./components/auth/VerifyEmail/VerifiedEmail";
 /*********
  * REDUX *
  *********/
@@ -36,7 +38,7 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  const MINUTE_MS = 180000;
+  const MINUTE_MS = 600000;
   const [githubStarModal, setGithubStarModal] = useState(false);
   useEffect(() => {
     store.dispatch(loadUser());
@@ -66,6 +68,9 @@ const App = () => {
             <Route path="/reset-password/:id" element={<PasswordReset />} />
             <Route path="/profiles" element={<Profiles />} />
             <Route path="/profile/:id" element={<SingleProfile />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
+            <Route path="/verified-email" element={<VerifiedEmail />} />
+
             <Route
               path="/posts"
               element={

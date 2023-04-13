@@ -38,7 +38,7 @@
 }
 .logo {
   font-size: 1.5rem;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 .hamburger {
   width: 40px;
@@ -87,6 +87,9 @@
   }
   .close {
     left: -100%;
+  }
+  .link {
+    margin: 2rem;
   }
   .topListItem {
     margin: 3rem 0;

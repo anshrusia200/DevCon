@@ -12,6 +12,7 @@ import {
   PASS_RESET,
   PASS_RESET_FAIL,
   DRAFT_SAVED,
+  STATUS_ACTIVE,
 } from "../actions/types";
 const initialState = {
   token: localStorage.getItem("token"),
@@ -50,6 +51,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         user: payload,
+      };
+    case STATUS_ACTIVE:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          status: "active",
+        },
       };
     case REGISTER_FAIL:
     case AUTH_ERROR:

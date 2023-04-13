@@ -63,7 +63,7 @@ router.post(
       });
       const post = await newPost.save();
 
-      res.json(post);
+      res.send(post);
     } catch (e) {
       console.log(e);
       res.status(500).send("Server Error");
@@ -280,6 +280,38 @@ router.delete("/comment/:post_id/:comment_id", auth, async (req, res) => {
   } catch (e) {
     console.log(e);
     return res.status(500).json("Server Error please check the console");
+  }
+});
+
+/****
+ * Get current user posts in dashboard
+ ****/
+router.get("/my-posts/:userId", auth, async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.userId)) {
+      return res.status(404).json({ msg: "userID not found" });
+    }
+    const posts = await Post.find({ user: req.params.userId.toString() }).sort({
+      date: -1,
+    });
+    console.log(posts);
+    return res.send(posts);
+  } catch (error) {
+    console.log(error);
+    return res.status(404).send("Cannot Fetch Your Posts");
+  }
+});
+
+router.put("/incrementView", auth, async (req, res) => {
+  try {
+    const { postId } = req.body;
+    const post = await Post.findById(postId);
+    post.visitCount++;
+    await post.save();
+    return post.visitCount;
+  } catch (error) {
+    console.log(error);
+    return res.status(404).send("Cannot increment visit count");
   }
 });
 

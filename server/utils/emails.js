@@ -610,11 +610,11 @@ const sendPasswordResetEmail = async (link, name, email) => {
   </html> `,
   });
 };
-const sendWelcomeEmail = async (name, email) => {
+const sendWelcomeEmail = async (name, email, verify_link) => {
   sgMail.send({
     to: email,
     from: "rusiaansh123@gmail.com",
-    subject: `Welcome to Devcon, `,
+    subject: `Email verification`,
     // html: `<p style="font-size: 20px;">Hey <strong> ${name} </strong>We recieved a request for passoword reset on your registered email ${email} . Please click on the button to reset your password 👇: </p> <br> <a href="${link}" style="cursor:pointer"><button style="padding: 10px; background-color: #007bff;font-size: 20px;color: #fff; border-radius:10px;border:none;cursor:pointer;">Password Reset</button></a> <br> <p style="font-size: 20px;">Or just paste this URL in your browser ${link}</p>
     // <p style="font-size: 20px;">The above link is valid for 5 minutes only.</p>`,
     html: `<!DOCTYPE HTML
@@ -962,15 +962,12 @@ const sendWelcomeEmail = async (name, email) => {
                                                                 <p style="font-size: 14px; line-height: 140%;">&nbsp;
                                                                 </p>
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 18px; line-height: 25.2px; color: #666666;">Welcome
-                                                                        to Devcon! You have successfully signed up for
+                                                                        style="font-size: 18px; line-height: 25.2px; color: #666666;">You have successfully signed up for
                                                                         the platform.</span></p>
                                                                 <p style="font-size: 14px; line-height: 140%;">&nbsp;
                                                                 </p>
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 18px; line-height: 25.2px; color: #666666;">We
-                                                                        hope you enjoy this experince of connecting and
-                                                                        exploring. </span>
+                                                                        style="font-size: 18px; line-height: 25.2px; color: #666666;">Please click on below button to verify your email address and continue on the platform.</span>
                                                                 </p>
                                                                 <p style="font-size: 14px; line-height: 140%;">&nbsp;
                                                                 </p>
@@ -1002,13 +999,12 @@ const sendWelcomeEmail = async (name, email) => {
                                                             <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
                                                             <div align="left">
                                                                 <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:51px; v-text-anchor:middle; width:205px;" arcsize="2%"  stroke="f" fillcolor="#18163a"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Lato',sans-serif;"><![endif]-->
-                                                                <a href="https://ondevcon.netlify.app/" target="_blank"
+                                                                <a href=${verify_link} target="_blank"
                                                                     class="v-button"
                                                                     style="box-sizing: border-box;display: inline-block;font-family:'Lato',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #18163a; border-radius: 1px;-webkit-border-radius: 1px; -moz-border-radius: 1px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word;font-size: 14px;">
                                                                     <span
                                                                         style="display:block;padding:15px 40px;line-height:120%;"><span
-                                                                            style="font-size: 18px; line-height: 21.6px;">Go
-                                                                            to DevCon</span></span>
+                                                                            style="font-size: 18px; line-height: 21.6px;">Verify Email</span></span>
                                                                 </a>
                                                                 <!--[if mso]></center></v:roundrect><![endif]-->
                                                             </div>

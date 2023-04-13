@@ -41,6 +41,11 @@ const PostSchema = new mongoose.Schema({
       date: { type: Date, default: Date.now },
     },
   ],
+
+  visitCount: {
+    type: Number,
+    default: 0,
+  },
   date: {
     type: Date,
     default: Date.now,

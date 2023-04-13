@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 import Spinner from "../layout/Spinner/Spinner";
@@ -9,6 +9,7 @@ import VectorImage from "../design/VectorImage/VectorImage";
 import Experience from "./Experience";
 import Education from "./Education";
 import DashboardOptions from "./DashboardOptions";
+import MyPosts from "./MyPosts";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -18,7 +19,9 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     console.log("Profile loaded");
-    getCurrentProfile();
+    if (profile === null) {
+      getCurrentProfile();
+    }
   }, []);
 
   return (
@@ -35,14 +38,15 @@ const Dashboard = ({
                 </div>
                 <DashboardOptions />
               </div>
-              <div className="bottom">
+              <div className="dash-center">
                 <Experience experience={profile.experience} />
                 <Education education={profile.education} />
-                <div className="delete-profile">
-                  <button onClick={() => deleteAccount()}>
-                    Delete Account
-                  </button>
-                </div>
+              </div>
+              <div className="dash-bottom">
+                <MyPosts />
+              </div>
+              <div className="delete-profile">
+                <button onClick={() => deleteAccount()}>Delete Account</button>
               </div>
             </div>
           ) : (

@@ -3,7 +3,7 @@ import "./Skeleton.css";
 export default function Skeleton() {
   return (
     <div className="cards1">
-      <div class="card1 is-loading">
+      <div class="card1 is-loading" id="first">
         <div class="image1"></div>
         <div class="content1">
           <p></p>
@@ -21,7 +21,7 @@ export default function Skeleton() {
           <div className="like-btn1"></div>
         </div>
       </div>
-      <div class="card1 is-loading">
+      <div class="card1 is-loading" id="mid">
         <div class="image1"></div>
         <div class="content1">
           <p></p>
@@ -39,7 +39,7 @@ export default function Skeleton() {
           <div className="like-btn1"></div>
         </div>
       </div>
-      <div class="card1 is-loading">
+      <div class="card1 is-loading" id="last">
         <div class="image1"></div>
         <div class="content1">
           <p></p>

@@ -113,6 +113,14 @@ body {
   box-shadow: 0px 0px 10px rgba(235, 0, 255),
     inset 0px 0px 10px rgba(235, 0, 255);
 }
+/****
+email btn
+ ****/
+
+.resend-btn {
+  width: 30%;
+  margin: 2rem 0;
+}
 @media only screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
@@ -165,6 +173,10 @@ body {
     background-color: #ea00ff3a;
     color: #ff00c8;
   }
+  .resend-btn {
+    width: 50%;
+    font-size: 1.3rem;
+  }
 }
 @media only screen and (max-width: 430px) {
   .main-container {
@@ -176,5 +188,8 @@ body {
   }
   .bottom button {
     margin: 0.7rem;
+  }
+  .resend-btn {
+    width: 80%;
   }
 }

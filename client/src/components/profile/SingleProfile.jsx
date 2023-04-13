@@ -54,7 +54,7 @@ const SingleProfile = ({
                     ))}
                   </div>
                 ) : (
-                  <h4>No experience credentials</h4>
+                  <h4 className="no-cred">No experience credentials</h4>
                 )}
               </div>
               <div className="profile-education">
@@ -69,7 +69,7 @@ const SingleProfile = ({
                     ))}
                   </div>
                 ) : (
-                  <h4>No education credentials</h4>
+                  <h4 className="no-cred">No education credentials</h4>
                 )}
               </div>
             </div>

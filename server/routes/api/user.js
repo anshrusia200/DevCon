@@ -68,7 +68,14 @@ router.post("/", validations, async (req, res) => {
         res.json({ token });
       }
     );
-    sendWelcomeEmail(user.name, user.email);
+    const token_verify_email = jwt.sign(
+      payload,
+      process.env.JWT_SECRET + user.status,
+      { expiresIn: "1d" }
+    );
+    const verify_link =
+      req.headers.origin + `/verified-email?verifyCode=${token_verify_email}`;
+    sendWelcomeEmail(user.name, user.email, verify_link);
   } catch (e) {
     console.log(e);
     res.status(500).send("Server Error");

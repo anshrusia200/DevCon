@@ -178,8 +178,8 @@ const Write = ({
             <ol>
               <li>
                 {" "}
-                All your content is saved as draft in real time. You can leave
-                the content as is, and continue later hassle free.{" "}
+                Your content is saved as draft in real time. You can leave the
+                content as is, and continue later hassle free.{" "}
               </li>
               <li>
                 <b>

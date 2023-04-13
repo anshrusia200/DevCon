@@ -19,12 +19,12 @@ const PostItem = ({
     deletePost(post._id);
   };
   const blankImageUrl =
-    "https://res.cloudinary.com/appcloudansh/image/upload/v1675093107/blogapp/Group_1_l70ltw.png";
+    "https://res.cloudinary.com/appcloudansh/image/upload/v1675152425/blogapp/inuikyjplzct6nj0sg6b.png";
 
   return (
     <>
       <div className="poster">
-        <img src={imageUrl || imageUrl} className="poster-img" />
+        <img src={imageUrl || blankImageUrl} className="poster-img" />
       </div>
       <h2 className="post-title">{title}</h2>
       {/* <TypographyStylesProvider>

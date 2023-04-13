@@ -9,11 +9,11 @@ const Experience = ({ experience, deleteExperience }) => {
     <tr key={exp._id}>
       <td>{exp.company}</td>
       <td>{exp.title}</td>
-      <td>{moment(exp.from).format("MMM YYYY")}</td>
+      <td>{moment(exp.from).format("MMM YY")}</td>
       {exp.current ? (
-        <td>-Present</td>
+        <td>Present</td>
       ) : (
-        <td> - {moment(exp.from).format("MMM YYYY")}</td>
+        <td>{moment(exp.to).format("MMM YY")}</td>
       )}
       <td>
         <button onClick={() => deleteExperience(exp._id)}>Delete</button>
@@ -22,18 +22,20 @@ const Experience = ({ experience, deleteExperience }) => {
   ));
   return (
     <div className="profile-table">
-      <h2>Experiences</h2>
+      <h2 className="dash-table-head">Experiences</h2>
       {!experiences.length ? (
-        <p>
+        <p className="no-content">
           No Experience added yet. <Link to="add-experience">Add one here</Link>
         </p>
       ) : (
-        <table>
+        <table className="dash-table">
           <thead>
             <tr>
               <th>Company</th>
               <th>Title</th>
-              <th>Duration</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Control</th>
             </tr>
           </thead>
           <tbody>{experiences}</tbody>

@@ -17,12 +17,19 @@ const UserSchema = new mongoose.Schema({
   avatar: {
     type: String,
   },
+  status: {
+    type: String,
+    enum: ["pending", "active"],
+    default: "pending",
+  },
   draft: {
     title: {
       type: String,
+      default: "",
     },
     text: {
       type: String,
+      default: "",
     },
   },
   date: {

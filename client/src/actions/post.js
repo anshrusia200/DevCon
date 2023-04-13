@@ -6,9 +6,11 @@ import {
   GET_POSTS,
   GET_POST,
   POSTS_ERROR,
+  CLEAR_POSTS,
   CLEAR_POST,
   UPDATE_LIKES,
   DELETE_POST,
+  DELETE_PROFILE_POST,
   POST_CREATED,
   LOADING_POST,
   ADD_COMMENT,
@@ -16,6 +18,8 @@ import {
   NEXT_PAGE,
   ALL_POSTS,
   STATE_RESET,
+  GET_DASH_POSTS,
+  INCREMENT_VISIT,
 } from "./types";
 
 export const loadingPosts = () => async (dispatch) => {
@@ -105,11 +109,13 @@ export const getPostById = (post_id) => async (dispatch) => {
       type: GET_POST,
       payload: res.data,
     });
+    return true;
   } catch (err) {
     dispatch({
       type: POSTS_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
+    return false;
   }
 };
 
@@ -148,6 +154,10 @@ export const deletePost = (id) => async (dispatch) => {
 
     dispatch({
       type: DELETE_POST,
+      payload: id,
+    });
+    dispatch({
+      type: DELETE_PROFILE_POST,
       payload: id,
     });
     dispatch(setAlert("Post Removed", "success"));
@@ -213,14 +223,15 @@ export const add_post = (formData) => async (dispatch) => {
     const res = await axios.post("/api/posts", body, config);
 
     dispatch(setAlert("Post Created", "success"));
-    const res_array = [res.data];
+
     dispatch({
       type: POST_CREATED,
-      payload: res_array,
+      payload: res.data,
     });
     dispatch({
       type: STATE_RESET,
     });
+
     console.log("sent");
   } catch (e) {
     dispatch(setAlert(e.response.statusText, "danger"));
@@ -230,6 +241,59 @@ export const add_post = (formData) => async (dispatch) => {
     });
   }
 };
+
+export const deleteSinglePost = (postId) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/posts/${postId}`);
+    dispatch({
+      type: DELETE_PROFILE_POST,
+      payload: postId,
+    });
+    dispatch({
+      type: DELETE_POST,
+    });
+  } catch (error) {
+    dispatch(setAlert("Could not delete post", "danger"));
+  }
+};
+export const getCurrentUserPosts = (userId) => async (dispatch) => {
+  try {
+    console.log(userId);
+    const res = await axios.get(`/api/posts/my-posts/${userId}`);
+    console.log(res.data);
+    dispatch({
+      type: GET_DASH_POSTS,
+      payload: res.data,
+    });
+    // return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const incrementVisit =
+  (post_owner_id, auth_id, post_id) => async (dispatch) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify({
+      postId: post_id,
+    });
+    try {
+      if (post_owner_id != auth_id) {
+        const res = await axios.put("/api/posts/incrementView", body, config);
+        dispatch({
+          type: INCREMENT_VISIT,
+          payload: res.data,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 // export const imageUpload = async (image, publicId) => {
 //   cloudinary.config({
 //     cloud_name: "dlkk7djwt",

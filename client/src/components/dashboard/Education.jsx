@@ -9,11 +9,11 @@ const Education = ({ education, deleteEducation }) => {
     <tr key={edu._id}>
       <td>{edu.school}</td>
       <td>{edu.degree}</td>
-      <td>{moment(edu.from).format("MMM YYYY")}</td>
+      <td>{moment(edu.from).format("MMM YY")}</td>
       {edu.current ? (
-        <td> - Present</td>
+        <td> Present</td>
       ) : (
-        <td> - {moment(edu.from).format("MMM YYYY")}</td>
+        <td> {moment(edu.from).format("MMM YY")}</td>
       )}
       <td>
         <button onClick={() => deleteEducation(edu._id)}>Delete</button>
@@ -22,18 +22,20 @@ const Education = ({ education, deleteEducation }) => {
   ));
   return (
     <div className="profile-table">
-      <h2>Education</h2>
+      <h2 className="dash-table-head">Education</h2>
       {!educations.length ? (
-        <p>
+        <p className="no-content">
           No degree added yet. <Link to="add-education">Add one here</Link>
         </p>
       ) : (
-        <table>
+        <table className="dash-table">
           <thead>
             <tr>
               <th>School</th>
               <th>Degree</th>
-              <th>Duration</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Control</th>
             </tr>
           </thead>
           <tbody>{educations}</tbody>

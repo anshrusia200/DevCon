@@ -1,12 +1,17 @@
 import React from "react";
-import { Route, useNavigate, Navigate } from "react-router-dom";
-import PropTypes from "prop-types";
-import { connect, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (isAuthenticated) {
+  const user = useSelector((state) => state.auth.user);
+  var isActive = false;
+  if (user != null) isActive = user.status === "active" ? true : false;
+
+  if (isAuthenticated && isActive) {
     return children;
+  } else if (isAuthenticated && !isActive) {
+    return <Navigate to="/verify-email" />;
   } else {
     return <Navigate to="/login" />;
   }

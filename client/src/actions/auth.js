@@ -11,11 +11,12 @@ import {
   LOGIN_SUCCESS,
   LOGOUT,
   CLEAR_PROFILE,
-  CLEAR_POST,
+  CLEAR_POSTS,
   PASS_EMAIL_SENT,
   PASS_RESET,
   PASS_RESET_FAIL,
   DRAFT_SAVED,
+  STATUS_ACTIVE,
 } from "./types";
 
 /*************
@@ -201,13 +202,43 @@ export const postDraft = (title, textValue) => async (dispatch) => {
   }
 };
 
+export const makeStatusActive = (verifyCode) => async (dispatch) => {
+  const config = {
+    headers: { "Content-Type": "application/json" },
+  };
+  const body = JSON.stringify({
+    token: verifyCode,
+  });
+  console.log(body);
+  try {
+    const res = await axios.post("/api/auth/verify-email", body, config);
+    dispatch({
+      type: STATUS_ACTIVE,
+    });
+    dispatch(setAlert("Email verification successful", "success"));
+    return res.data;
+  } catch (error) {
+    dispatch(setAlert("Link is invalid", "danger"));
+  }
+};
+
+export const resendVerificationEmail = () => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/auth/resend-email");
+    dispatch(setAlert("Email sent", "success"));
+  } catch (error) {
+    dispatch(setAlert("Error sending email"));
+  }
+};
+
 /**********
  * LOGOUT *
  **********/
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("token");
-  dispatch({ type: CLEAR_POST });
+  dispatch({ type: CLEAR_POSTS });
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
+  return;
 };

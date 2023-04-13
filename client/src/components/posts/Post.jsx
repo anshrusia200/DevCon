@@ -8,6 +8,7 @@ import {
   removeLikes,
   delete_comment,
   getPostById,
+  incrementVisit,
 } from "../../actions/post";
 import Spinner from "../layout/Spinner/Spinner";
 import moment from "moment";
@@ -21,6 +22,7 @@ const Post = ({
   delete_comment,
   addLikes,
   removeLikes,
+  incrementVisit,
   auth,
   post: { post, loading },
 }) => {
@@ -28,10 +30,12 @@ const Post = ({
   useEffect(() => {
     getPostById(id);
   }, []);
+  useEffect(() => {
+    post && incrementVisit(post.user, auth.user._id, post._id);
+  }, [post]);
   const [commentOpen, setCommentOpen] = useState(false);
   // const [comment, setComment] = useState("");
   // const initialValue = "<p>Enter Blog content </p>";
-
   const [commentValue, setCommentValue] = useState("");
   const handleDelete = (commentId) => {
     delete_comment(id, commentId);
@@ -64,7 +68,6 @@ const Post = ({
     console.log(isFullScreen);
     setIsFullScreen(!isFullScreen);
   };
-  var styleObject = {};
   // useEffect(() => {
   //   console.log();
   //   if (isFullScreen) {
@@ -79,6 +82,7 @@ const Post = ({
   //     };
   //   }
   // }, [isFullScreen]);
+
   return (
     <section className="post-wrapper">
       {loading || post === null ? (
@@ -263,6 +267,7 @@ Post.propTypes = {
   add_comment: PropTypes.func.isRequired,
   addLikes: PropTypes.func.isRequired,
   removeLikes: PropTypes.func.isRequired,
+  incrementVisit: PropTypes.func.isRequired,
   delete_comment: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
@@ -279,4 +284,5 @@ export default connect(mapStateToProps, {
   add_comment,
   addLikes,
   removeLikes,
+  incrementVisit,
 })(Post);

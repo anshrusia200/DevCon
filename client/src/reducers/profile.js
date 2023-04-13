@@ -5,10 +5,13 @@ import {
   GET_REPOS,
   PROFILE_ERROR,
   UPDATE_PROFILE,
+  GET_DASH_POSTS,
+  DELETE_PROFILE_POST,
 } from "../actions/types";
 
 const initialState = {
   profile: null,
+  myposts: [],
   profiles: [],
   repos: [],
   loading: true,
@@ -37,6 +40,16 @@ export default function (state = initialState, action) {
         ...state,
         repos: payload,
         loading: false,
+      };
+    case DELETE_PROFILE_POST:
+      return {
+        ...state,
+        myposts: state.myposts.filter((post) => post._id !== payload),
+      };
+    case GET_DASH_POSTS:
+      return {
+        ...state,
+        myposts: payload,
       };
     case PROFILE_ERROR:
       return {

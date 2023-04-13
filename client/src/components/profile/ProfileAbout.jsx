@@ -10,12 +10,15 @@ const ProfileAbout = ({ profile }) => {
           {profile.bio ? <span>{profile.bio}</span> : <span>No Bio found</span>}
         </p>
       </div>
+      {/* <div className="divider"></div> */}
       <div className="skills">
         <h1>Skills</h1>
         <ul>
           {profile.skills.map((skill) => (
             <li>
-              <i className="fas fa-check"></i> {skill}
+              <i className="fas fa-check" style={{ color: "#ff8a00" }}></i>{" "}
+              &nbsp;
+              {skill}
             </li>
           ))}
         </ul>
