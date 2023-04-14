@@ -27,7 +27,10 @@ const AddEducation = ({ addEducation }) => {
     navigate("/dashboard");
   };
   return (
-    <div>
+    <div className="main-bg">
+      <Link to="/dashboard" className="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Profile
+      </Link>
       <section className="main">
         <h1 className="large text-primary">Add An Education</h1>
         <p className="lead">
@@ -75,7 +78,8 @@ const AddEducation = ({ addEducation }) => {
               <p>
                 <input
                   type="checkbox"
-                  name="current"
+                  name="currentEdu"
+                  id="currentEdu"
                   checked={current}
                   value={current}
                   onChange={(e) => {
@@ -83,7 +87,7 @@ const AddEducation = ({ addEducation }) => {
                     toggleToDateDisabled(!toDateDisabled);
                   }}
                 />
-                Currently pursuing
+                <label for="currentEdu">Currently pursuing</label>
               </p>
             </div>
             {!toDateDisabled ? (
@@ -110,9 +114,9 @@ const AddEducation = ({ addEducation }) => {
                 onChange={onChange}
               ></textarea>
             </div>
-            <input type="submit" className="btn btn-primary my-1" />
-            <Link className="" to="/dashboard">
-              Go Back
+            <input type="submit" className="submit-profile-btn" />
+            <Link className="back-btm" to="/dashboard">
+              Back to Profile
             </Link>
           </form>
         </div>

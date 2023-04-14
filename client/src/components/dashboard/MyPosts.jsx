@@ -5,12 +5,15 @@ import { Link, useAsyncError } from "react-router-dom";
 import moment from "moment";
 import { deleteEducation } from "../../actions/profile";
 import { deleteSinglePost, getCurrentUserPosts } from "../../actions/post";
+import { DeleteModal } from "../layout/DeleteModal/DeleteModal";
 
 const MyPosts = ({
   profile: { profile, myposts },
   getCurrentUserPosts,
   deleteSinglePost,
 }) => {
+  const [postId, setPostId] = useState("");
+  const [deletePost, setDeletePost] = useState(false);
   useEffect(() => {
     console.log(profile.user._id);
     // myposts.length == 0 &&
@@ -18,7 +21,8 @@ const MyPosts = ({
   }, []);
 
   const handleClick = async (postId) => {
-    deleteSinglePost(postId);
+    setPostId(postId);
+    setDeletePost(true);
   };
   const render_posts =
     myposts &&
@@ -46,39 +50,48 @@ const MyPosts = ({
       </tr>
     ));
   return (
-    <div className="profile-table">
-      <h2 className="dash-table-head">
-        Your Posts{" "}
-        <button
-          className="refresh-btn"
-          onClick={() => getCurrentUserPosts(profile.user._id)}
-        >
-          {" "}
-          <i className="fa fa-refresh"></i>{" "}
-        </button>{" "}
-      </h2>
-      {myposts != undefined && myposts.length != 0 ? (
-        <table className="dash-table">
-          <thead>
-            <tr>
-              <th>S no.</th>
-              <th>Title</th>
-              <th>Visits</th>
-              <th>Likes</th>
-              <th>Time</th>
-              <th>Date</th>
-              <th>Control</th>
-              <th>View</th>
-            </tr>
-          </thead>
-          <tbody>{render_posts}</tbody>
-        </table>
-      ) : (
-        <p className="no-content">
-          No posts yet. <Link to="/posts/write">Write one here</Link>
-        </p>
-      )}
-    </div>
+    <>
+      <DeleteModal
+        deleteItemId={postId}
+        deleteFunction={deleteSinglePost}
+        itemType={"Post"}
+        visible={deletePost}
+        visibleChange={setDeletePost}
+      />
+      <div className="profile-table" id="post-table">
+        <h2 className="dash-table-head">
+          Your Posts{" "}
+          <button
+            className="refresh-btn"
+            onClick={() => getCurrentUserPosts(profile.user._id)}
+          >
+            {" "}
+            <i className="fa fa-refresh"></i>{" "}
+          </button>{" "}
+        </h2>
+        {myposts != undefined && myposts.length != 0 ? (
+          <table className="dash-table">
+            <thead>
+              <tr>
+                <th>S no.</th>
+                <th>Title</th>
+                <th>Visits</th>
+                <th>Likes</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Control</th>
+                <th>View</th>
+              </tr>
+            </thead>
+            <tbody>{render_posts}</tbody>
+          </table>
+        ) : (
+          <p className="no-content">
+            No posts yet. <Link to="/posts/write">Write one here</Link>
+          </p>
+        )}
+      </div>
+    </>
   );
 };
 

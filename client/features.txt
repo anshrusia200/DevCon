@@ -3,3 +3,5 @@
 - show post read count in dashboard
 - add follow feature in developers profile - hold
 - add realtime message feature - hold 
+- add bookmark posts
+- add modal to delete post, account 

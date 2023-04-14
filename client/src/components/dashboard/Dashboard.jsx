@@ -10,6 +10,7 @@ import Experience from "./Experience";
 import Education from "./Education";
 import DashboardOptions from "./DashboardOptions";
 import MyPosts from "./MyPosts";
+import { DeleteModal } from "../layout/DeleteModal/DeleteModal";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -17,6 +18,7 @@ const Dashboard = ({
   profile: { profile, loading },
   deleteAccount,
 }) => {
+  const [deleteModal, setDeleteModal] = useState(false);
   useEffect(() => {
     console.log("Profile loaded");
     if (profile === null) {
@@ -24,12 +26,23 @@ const Dashboard = ({
     }
   }, []);
 
+  const visibleModal = () => {
+    setDeleteModal(true);
+  };
+
   return (
     <div className="main">
       {loading && profile === null ? (
         <Spinner />
       ) : (
         <>
+          <DeleteModal
+            deleteItemId={user._id}
+            deleteFunction={deleteAccount}
+            itemType={"Account"}
+            visible={deleteModal}
+            visibleChange={setDeleteModal}
+          />
           {!loading && profile !== null ? (
             <div className="dashboard">
               <div className="dash-top">
@@ -46,7 +59,12 @@ const Dashboard = ({
                 <MyPosts />
               </div>
               <div className="delete-profile">
-                <button onClick={() => deleteAccount()}>Delete Account</button>
+                <button
+                  onClick={() => visibleModal()}
+                  className="post-control delete-acc post-delete"
+                >
+                  Delete Account
+                </button>
               </div>
             </div>
           ) : (

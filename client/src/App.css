@@ -57,22 +57,39 @@ button:hover {
   background-image: url(../src/assets/Signup.png);
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   width: 100%;
+  /* height: 80vh; */
+}
+.auth-main {
   height: 80vh;
 }
-
 @media only screen and (max-width: 768px) {
   .main-bg {
     background-image: url(../src/assets/Signup2.png);
     background-position: center;
   }
 }
-
-.lead {
+.large {
   font-size: 2rem;
+  margin: 0;
+  color: #ff8a00;
+}
+.lead {
+  font-size: 1.5rem;
   margin: 0;
   font-weight: bold;
   text-align: center;
+}
+.back {
+  margin: 0;
+  margin-left: 2rem;
+  color: #fff;
+  width: 3rem;
+}
+.back-btm {
+  width: 15%;
+  min-width: 100px;
 }
 .other-option {
   margin: 10px auto;
@@ -87,6 +104,47 @@ button:hover {
   display: flex;
   flex-direction: column;
 }
+.form-group-wrap {
+  display: flex;
+  align-items: center;
+}
+.form-group-wrap input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  background-color: #3a2f49;
+  padding: 10px;
+}
+.input-img {
+  border-radius: 0 10px 10px 40px;
+  width: 6rem;
+  background-color: #483168;
+  margin-left: -5rem;
+  height: 2.4rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -2px 1px 3px rgba(0, 0, 0, 0.15);
+  position: relative;
+  right: 0;
+}
+.input-icon {
+  margin-left: 1.7rem;
+  margin-top: 7px;
+  background-color: #b534c9af;
+  box-shadow: 0px 0 10px 3px #b534c9bb;
+  width: 2rem;
+  text-align: center;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
+}
+.input-icon img {
+  z-index: 2;
+}
 .form-group input,
 .form-group select,
 .form-group textarea,
@@ -100,6 +158,9 @@ button:hover {
   color: #fff;
   margin: 0.5rem;
   letter-spacing: 1px;
+}
+.form-group-wrap input {
+  padding-right: 5rem;
 }
 .form-group select option {
   height: 2rem;
@@ -117,6 +178,19 @@ button:hover {
   color: #fff;
   margin: 0.5rem 0;
   letter-spacing: 1px;
+}
+.submit-profile-btn {
+  width: 30%;
+  min-width: 100px;
+  margin: 10px auto;
+  padding: 5px;
+  font-size: 1.3rem;
+  background-color: #108091;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 /* #btn-register {
   width: 100%;
@@ -323,6 +397,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  overflow: auto;
 }
 
 /******************
@@ -487,7 +562,7 @@ button:hover {
   color: #fff;
 }
 .clr-draft {
-  color: #ff8a00;
+  color: #8a00;
   color: #ff3c3c;
   background-color: transparent;
   border: none;
@@ -1283,9 +1358,16 @@ button:hover {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-direction: column;
 }
 .profile-table {
   width: 100%;
+}
+/* .post-table {
+  min-width: 700px;
+} */
+.dash-bottom {
+  overflow-x: auto;
 }
 .dash-table-head {
   text-align: center;
@@ -1296,6 +1378,10 @@ button:hover {
   width: 100%;
   min-width: fit-content;
   text-align: center;
+  font-size: 1.2rem;
+}
+.posts-table {
+  width: 100%;
 }
 .dash-table tbody tr:nth-child(odd) {
   background-color: #ffea0014;
@@ -1304,6 +1390,7 @@ button:hover {
 .dash-table td,
 th {
   padding: 15px 10px;
+  min-width: 100px;
 }
 .dash-table th,
 tbody {
@@ -1316,7 +1403,7 @@ tbody {
 
 .post-title-cell {
   /* white-space: nowrap; */
-  width: 200px;
+  width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1334,12 +1421,20 @@ tbody {
 .post-control a {
   color: #fff;
 }
-.post-delete {
+.post-delete,
+.delete-acc {
   background-color: #b83b48;
 }
 .post-delete:hover {
   box-shadow: 0px 0px 5px #b83b48;
 }
+.delete-popup {
+  background-color: #b83b48;
+}
+.delete-popup-btn {
+  background-color: #fff;
+}
+
 @media only screen and (max-width: 1040px) {
   .dash-center {
     flex-direction: column;

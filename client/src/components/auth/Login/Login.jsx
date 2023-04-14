@@ -32,7 +32,7 @@ function Login({ login, isAuthenticated, loading }) {
   }
 
   return (
-    <div className="main-bg">
+    <div className="main-bg auth-main">
       <section className="auth-container">
         <p className="lead">Login</p>
         <p className="other-option">
@@ -43,23 +43,48 @@ function Login({ login, isAuthenticated, loading }) {
           <input type="text" placeholder="Name" name="name" required />
         </div> */}
           <div className="form-group">
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              value={email}
-              onChange={onChange}
-            />
+            <div className="form-group-wrap">
+              <input
+                type="email"
+                placeholder="Email Address"
+                name="email"
+                value={email}
+                onChange={onChange}
+              />
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/email.png"
+                    alt=""
+                    width="20"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="form-group">
-            <input
-              type={showPass ? "text" : "password"}
-              placeholder="Password"
-              name="password"
-              value={password}
-              minLength="6"
-              onChange={onChange}
-            />
+            <div className="form-group-wrap">
+              <input
+                type={showPass ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+                value={password}
+                minLength="6"
+                onChange={onChange}
+              />
+
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/LOCK.png"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="form-show-pass">
             <input

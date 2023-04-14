@@ -51,14 +51,26 @@ const EditProfile = ({
       githubusername:
         loading || !profile.githubusername ? "" : profile.githubusername,
       bio: loading || !profile.bio ? "" : profile.bio,
-      twitter: loading || !profile.social.twitter ? "" : profile.social.twitter,
+      twitter:
+        loading || !profile.social || !profile.social.twitter
+          ? ""
+          : profile.social.twitter,
       facebook:
-        loading || !profile.social.facebook ? "" : profile.social.facebook,
+        loading || !profile.social || !profile.social.facebook
+          ? ""
+          : profile.social.facebook,
       linkedin:
-        loading || !profile.social.linkedin ? "" : profile.social.linkedin,
-      youtube: loading || !profile.social.youtube ? "" : profile.social.youtube,
+        loading || !profile.social || !profile.social.linkedin
+          ? ""
+          : profile.social.linkedin,
+      youtube:
+        loading || !profile.social || !profile.social.youtube
+          ? ""
+          : profile.social.youtube,
       instagram:
-        loading || !profile.social.instagram ? "" : profile.social.instagram,
+        loading || !profile.social || !profile.social.instagram
+          ? ""
+          : profile.social.instagram,
     });
   }, [loading]);
 
@@ -74,9 +86,12 @@ const EditProfile = ({
     navigate("/dashboard");
   };
   return (
-    <div>
+    <div className="main-bg">
+      <Link to="/dashboard" className="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Profile
+      </Link>
       <section className="main">
-        <h1>Edit Your Profile</h1>
+        <h1 className="large">Edit Your Profile</h1>
         <h3>
           <i className="fas fa-user"></i> Let's get some information to make
           your profile stand out
@@ -254,7 +269,9 @@ const EditProfile = ({
             <button type="submit" className="glow-btn" id="submit-btn">
               Submit
             </button>
-            <Link to="/dashboard">Go Back</Link>
+            <Link to="/dashboard" className="back-btm ">
+              Back to Profile
+            </Link>
           </form>
         </div>
       </section>

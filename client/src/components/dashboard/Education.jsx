@@ -16,7 +16,12 @@ const Education = ({ education, deleteEducation }) => {
         <td> {moment(edu.from).format("MMM YY")}</td>
       )}
       <td>
-        <button onClick={() => deleteEducation(edu._id)}>Delete</button>
+        <button
+          className="post-control post-delete"
+          onClick={() => deleteEducation(edu._id)}
+        >
+          Delete
+        </button>
       </td>
     </tr>
   ));

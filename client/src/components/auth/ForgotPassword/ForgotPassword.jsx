@@ -15,7 +15,7 @@ const ForgotPassword = ({ forgotPassword, loading }) => {
     console.log(email);
   };
   return (
-    <div className="main-bg">
+    <div className="main-bg auth-main">
       <section className="auth-container">
         <p className="lead">Forgot Password</p>
         <p className="other-option">
@@ -27,13 +27,26 @@ const ForgotPassword = ({ forgotPassword, loading }) => {
         <input type="text" placeholder="Name" name="name" required />
       </div> */}
           <div className="form-group">
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <div className="form-group-wrap">
+              <input
+                type="email"
+                placeholder="Email Address"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/email.png"
+                    alt=""
+                    width="20"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="form-group form-btn">

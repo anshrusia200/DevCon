@@ -39,7 +39,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
   }
 
   return (
-    <div className="main-bg">
+    <div className="main-bg auth-main">
       <section className="auth-container">
         <p className="lead">Create Account</p>
         <p className="other-option">
@@ -48,46 +48,103 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
 
         <form className="form" onSubmit={onSubmit}>
           <div className="form-group">
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={onChange}
-              // required
-              value={name}
-            />
+            <div className="form-group-wrap">
+              <input
+                type="text"
+                placeholder="Name"
+                name="name"
+                onChange={onChange}
+                // required
+                value={name}
+              />
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/name.png"
+                    alt=""
+                    width="14"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="form-group">
-            <input
-              type="email"
-              placeholder="Email Address"
-              value={email}
-              onChange={onChange}
-              name="email"
-            />
+            <div className="form-group-wrap">
+              <input
+                type="email"
+                placeholder="Email Address"
+                value={email}
+                onChange={onChange}
+                name="email"
+              />
+
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/email.png"
+                    alt=""
+                    width="20"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
             <small className="form-text">
-              Note : Please use a gravatar email
+              Note : Please use a{" "}
+              <a
+                href="https://en.gravatar.com/support/activating-your-account/"
+                target="_blank"
+              >
+                gravatar
+              </a>{" "}
+              email
             </small>
           </div>
           <div className="form-group">
-            <input
-              type={showPass ? "text" : "password"}
-              placeholder="Password"
-              name="password"
-              // minLength="6"
-              onChange={onChange}
-              value={password}
-            />
+            <div className="form-group-wrap">
+              <input
+                type={showPass ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+                // minLength="6"
+                onChange={onChange}
+                value={password}
+              />
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/lock.png"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="form-group">
-            <input
-              type={showPass ? "text" : "password"}
-              placeholder="Confirm Password"
-              name="password2"
-              // minLength="6"
-              onChange={onChange}
-              value={password2}
-            />
+            <div className="form-group-wrap">
+              <input
+                type={showPass ? "text" : "password"}
+                placeholder="Confirm Password"
+                name="password2"
+                // minLength="6"
+                onChange={onChange}
+                value={password2}
+              />
+
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/lock.png"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="form-show-pass">
             <input

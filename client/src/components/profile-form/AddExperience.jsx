@@ -26,7 +26,10 @@ const AddExperience = ({ addExperience }) => {
     navigate("/dashboard");
   };
   return (
-    <div>
+    <div className="main-bg">
+      <Link to="/dashboard" className="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Profile
+      </Link>
       <section className="main">
         <h1 className="large text-primary">Add An Experience</h1>
         <p className="lead">
@@ -75,6 +78,7 @@ const AddExperience = ({ addExperience }) => {
                 <input
                   type="checkbox"
                   name="current"
+                  id="currentJob"
                   checked={current}
                   value={current}
                   onChange={(e) => {
@@ -82,7 +86,8 @@ const AddExperience = ({ addExperience }) => {
                     toggleToDateDisabled(!toDateDisabled);
                   }}
                 />
-                Current Job
+
+                <label for="currentJob">Current Job</label>
               </p>
             </div>
             {!toDateDisabled ? (
@@ -109,8 +114,10 @@ const AddExperience = ({ addExperience }) => {
                 onChange={onChange}
               ></textarea>
             </div>
-            <input type="submit" className="btn btn-primary my-1" />
-            <Link to="/dashboard">Go Back</Link>
+            <input type="submit" className="submit-profile-btn" />
+            <Link to="/dashboard" className="back-btm ">
+              Back to Profile
+            </Link>
           </form>
         </div>
       </section>

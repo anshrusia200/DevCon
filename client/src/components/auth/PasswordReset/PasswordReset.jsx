@@ -31,7 +31,7 @@ const PasswordReset = ({ resetPassword, loading }) => {
     }
   };
   return (
-    <div className="main-bg">
+    <div className="main-bg auth-main">
       <section className="auth-container">
         <p className="lead">Reset Password</p>
         <p className="other-option">Change your password</p>
@@ -40,22 +40,48 @@ const PasswordReset = ({ resetPassword, loading }) => {
         <input type="text" placeholder="Name" name="name" required />
       </div> */}
           <div className="form-group">
-            <input
-              type={showPass ? "text" : "password"}
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="form-group-wrap">
+              <input
+                type={showPass ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/lock.png"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="form-group">
-            <input
-              type={showPass ? "text" : "password"}
-              placeholder="Confirm Password"
-              name="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+            <div className="form-group-wrap">
+              <input
+                type={showPass ? "text" : "password"}
+                placeholder="Confirm Password"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+
+              <div class="input-img">
+                <div class="input-icon">
+                  <img
+                    src="../dist/assets/lock.png"
+                    alt=""
+                    width="18"
+                    height="18"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="form-show-pass">
             <input
