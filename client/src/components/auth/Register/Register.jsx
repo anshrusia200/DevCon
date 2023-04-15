@@ -60,7 +60,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/name.png"
+                    src="../src/assets/name.png"
                     alt=""
                     width="14"
                     height="18"
@@ -82,7 +82,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/email.png"
+                    src="../src/assets/email.png"
                     alt=""
                     width="20"
                     height="18"
@@ -114,7 +114,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/lock.png"
+                    src="../src/assets/lock.png"
                     alt=""
                     width="18"
                     height="18"
@@ -137,7 +137,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/lock.png"
+                    src="../src/assets/lock.png"
                     alt=""
                     width="18"
                     height="18"

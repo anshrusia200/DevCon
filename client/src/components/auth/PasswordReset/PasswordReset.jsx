@@ -52,7 +52,7 @@ const PasswordReset = ({ resetPassword, loading }) => {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/lock.png"
+                    src="../src/assets/lock.png"
                     alt=""
                     width="18"
                     height="18"
@@ -74,7 +74,7 @@ const PasswordReset = ({ resetPassword, loading }) => {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/lock.png"
+                    src="../src/assets/lock.png"
                     alt=""
                     width="18"
                     height="18"

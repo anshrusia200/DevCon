@@ -42,7 +42,8 @@ const App = () => {
   const [githubStarModal, setGithubStarModal] = useState(false);
   useEffect(() => {
     store.dispatch(loadUser());
-
+  }, []);
+  useEffect(() => {
     const interval = setInterval(() => {
       setGithubStarModal(true);
     }, MINUTE_MS);

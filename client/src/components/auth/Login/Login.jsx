@@ -54,7 +54,7 @@ function Login({ login, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/email.png"
+                    src="../src/assets/email.png"
                     alt=""
                     width="20"
                     height="18"
@@ -77,7 +77,7 @@ function Login({ login, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/LOCK.png"
+                    src="../src/assets/LOCK.png"
                     alt=""
                     width="18"
                     height="18"

@@ -39,7 +39,7 @@ const ForgotPassword = ({ forgotPassword, loading }) => {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../dist/assets/email.png"
+                    src="../src/assets/email.png"
                     alt=""
                     width="20"
                     height="18"
