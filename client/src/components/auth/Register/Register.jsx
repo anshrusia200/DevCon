@@ -60,7 +60,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../src/assets/name.png"
+                    src="https://res.cloudinary.com/appcloudansh/image/upload/v1681553204/name_cigjwx.png"
                     alt=""
                     width="14"
                     height="18"
@@ -82,7 +82,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../src/assets/email.png"
+                    src="https://res.cloudinary.com/appcloudansh/image/upload/v1681553204/email_kmas4a.png"
                     alt=""
                     width="20"
                     height="18"
@@ -114,7 +114,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../src/assets/lock.png"
+                    src="https://res.cloudinary.com/appcloudansh/image/upload/v1681553204/lock_hlkl15.png"
                     alt=""
                     width="18"
                     height="18"
@@ -137,7 +137,7 @@ function Register({ setAlert, register, isAuthenticated, loading }) {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../src/assets/lock.png"
+                    src="https://res.cloudinary.com/appcloudansh/image/upload/v1681553204/lock_hlkl15.png"
                     alt=""
                     width="18"
                     height="18"

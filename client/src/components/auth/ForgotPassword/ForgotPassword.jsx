@@ -39,7 +39,7 @@ const ForgotPassword = ({ forgotPassword, loading }) => {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../src/assets/email.png"
+                    src="https://res.cloudinary.com/appcloudansh/image/upload/v1681553204/email_kmas4a.png"
                     alt=""
                     width="20"
                     height="18"

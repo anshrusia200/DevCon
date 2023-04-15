@@ -27,7 +27,7 @@ export const DeleteModal = ({
             Delete
           </button>
           <button
-            className="github-btn"
+            className="github-btn delete-cancel"
             onClick={() => visibleChange(!visible)}
           >
             Cancel

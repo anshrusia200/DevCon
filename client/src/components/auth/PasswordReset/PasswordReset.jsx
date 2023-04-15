@@ -52,7 +52,7 @@ const PasswordReset = ({ resetPassword, loading }) => {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../src/assets/lock.png"
+                    src="https://res.cloudinary.com/appcloudansh/image/upload/v1681553204/lock_hlkl15.png"
                     alt=""
                     width="18"
                     height="18"
@@ -74,7 +74,7 @@ const PasswordReset = ({ resetPassword, loading }) => {
               <div class="input-img">
                 <div class="input-icon">
                   <img
-                    src="../src/assets/lock.png"
+                    src="https://res.cloudinary.com/appcloudansh/image/upload/v1681553204/lock_hlkl15.png"
                     alt=""
                     width="18"
                     height="18"
