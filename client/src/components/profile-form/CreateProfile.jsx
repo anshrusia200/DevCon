@@ -34,13 +34,16 @@ const CreateProfile = ({ createNewProfile }) => {
     navigate("/dashboard");
   };
   return (
-    <div>
+    <div className="main-bg">
+      <Link to="/dashboard" className="back">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Profile
+      </Link>
       <section className="main">
-        <h1>Create Your Profile</h1>
-        <h3>
-          <i className="fas fa-user"></i> Let's get some information to make
-          your profile stand out
-        </h3>
+        <h1 className="large text-primary">Create Your Profile</h1>
+
+        <p className="lead">
+          Let's get some information to make your profile stand out
+        </p>
         <small>* = required field</small>
 
         <div className="form-wrapper">
@@ -120,6 +123,7 @@ const CreateProfile = ({ createNewProfile }) => {
             <div className="form-group">
               <textarea
                 placeholder="A short bio of yourself"
+                rows="5"
                 name="bio"
                 onChange={onChange}
               ></textarea>
@@ -131,7 +135,7 @@ const CreateProfile = ({ createNewProfile }) => {
             <div className="social-box">
               <button
                 type="button"
-                className="glow-btn btn2"
+                className=""
                 onClick={() => {
                   setSocialOpen(!socialOpen);
                 }}
@@ -143,11 +147,6 @@ const CreateProfile = ({ createNewProfile }) => {
 
             {socialOpen ? (
               <>
-                <div className="form-group">
-                  <small className="form-text">
-                    Tell us a little about yourself
-                  </small>
-                </div>
                 <div className="form-group social-input">
                   <input
                     type="text"
@@ -205,7 +204,9 @@ const CreateProfile = ({ createNewProfile }) => {
             <button type="submit" className="glow-btn" id="submit-btn">
               Submit
             </button>
-            <Link to="/dashboard">Go Back</Link>
+            <Link to="/dashboard" className="back-btm">
+              Go Back
+            </Link>
           </form>
         </div>
       </section>

@@ -20,7 +20,7 @@ input:active {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 .design {
-  margin: 1rems;
+  margin: 1rem;
 }
 a,
 Link {
@@ -418,12 +418,17 @@ button {
 }
 .social-box button {
   font-size: 1rem;
-  margin-right: 1rem;
+  background-color: #108091;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  margin: 0 1rem 0 0;
+  border-radius: 5px;
 }
 .social-input {
   flex-direction: row;
   align-items: center;
-  width: 100%;
+  width: 90%;
 }
 .social-input input {
   width: 40%;
@@ -445,7 +450,7 @@ button {
   color: #e1306c;
 }
 #submit-btn {
-  margin: 0 auto;
+  margin: 1rem auto;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -625,12 +630,12 @@ button {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  width: 85%;
+  width: 90%;
 }
 .posts-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 40px;
+  row-gap: 50px;
   justify-items: center;
   width: 100%;
 }
@@ -760,6 +765,16 @@ button {
   background-color: rgba(241, 86, 255, 0.217);
   border-radius: 5px;
   cursor: pointer;
+}
+.comment-meta {
+  border-top: 1px solid #ccc;
+}
+.comment-name {
+  color: #ff8800;
+}
+.comment-bottom {
+  display: flex;
+  justify-content: space-between;
 }
 #btn-back-to-top {
   position: fixed;
@@ -1339,6 +1354,29 @@ button {
 .dash-profile img {
   height: 100%;
   border-radius: 50%;
+}
+.no-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no-profile-img {
+  position: relative;
+  /* left: 120px; */
+  top: 20px;
+  /* margin-bottom: 7rem; */
+}
+.no-profile-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+.no-profile-text h2 {
+  margin: 0;
+}
+.no-profile-text p {
+  text-align: center;
 }
 .dash-buttons {
   display: flex;

@@ -71,14 +71,16 @@ const Dashboard = ({
             <>
               <VectorImage />
               <div className="no-profile">
-                <div className="profile">
+                <div className="dash-profile no-profile-img">
                   <img src={user && user.avatar} alt="User Profile Image" />
                 </div>
-                <h2>Welcome, {user && user.name}</h2>
-                <p>You have not setup a profile yet. Please add some info.</p>
-                <Link to="create-profile">
-                  <button className="glow-btn">Create a Profile</button>
-                </Link>
+                <div className="no-profile-text">
+                  <h2>Welcome, {user && user.name}</h2>
+                  <p>You have not setup a profile yet. Please add some info.</p>
+                  <Link to="create-profile">
+                    <button className="glow-btn">Create a Profile</button>
+                  </Link>
+                </div>
               </div>
             </>
           )}

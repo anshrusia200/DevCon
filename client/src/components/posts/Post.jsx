@@ -158,12 +158,24 @@ const Post = ({
                           />
                         </TypographyStylesProvider>
                         {comment.user === auth.user._id ? (
-                          <button
-                            onClick={() => handleDelete(comment._id)}
-                            className="comment-delete-btn"
-                          >
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                          </button>
+                          <div className="comment-meta">
+                            <div className="comment-name">
+                              {comment.name} commented
+                            </div>
+                            <div className="comment-bottom">
+                              <div className="comment-time">
+                                {moment(comment.date).format(
+                                  "HH:MM | MMM Do YY"
+                                )}
+                              </div>
+                              <button
+                                onClick={() => handleDelete(comment._id)}
+                                className="comment-delete-btn"
+                              >
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                          </div>
                         ) : (
                           <></>
                         )}

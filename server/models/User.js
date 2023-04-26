@@ -32,6 +32,19 @@ const UserSchema = new mongoose.Schema({
       default: "",
     },
   },
+  connections: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+      status: {
+        type: String,
+        enum: ["pending", "active"],
+        default: "pending",
+      },
+    },
+  ],
   date: {
     type: Date,
     default: Date.now,

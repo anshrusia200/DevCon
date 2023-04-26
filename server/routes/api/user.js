@@ -100,4 +100,16 @@ router.put("/draft", auth, async (req, res) => {
   }
 });
 
+// router.put("/send-connection", auth, async (req, res) => {
+//   const { connectId } = req.body;
+//   const newConnection = {
+//     user: connectId,
+//     status: "pending",
+//   };
+//   try {
+//     const user = await User.findById(req.user.id).select("-password");
+//     user.connections.;
+//   } catch {}
+// });
+
 module.exports = router;
